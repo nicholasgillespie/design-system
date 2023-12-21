@@ -14,7 +14,7 @@ The system provides:
 
 The system's commitment to simplicity and pragmatism is demonstrated through the use of SCSS and design tokens to manage key aspects of the design language, the creation of utility classes, and the crafting of helper functions.
 
-You can find the Design System project repository on [GitHub](https://github.com/nicholasgillespie/ng-design-system.git).
+You can find the Design System project repository on [GitHub](https://github.com/nicholasgillespie/design-system.git).
 
 ## Getting Started
 
@@ -28,13 +28,13 @@ You can find the Design System project repository on [GitHub](https://github.com
 ### Clone the repo
 
 ```bash
-git clone https://github.com/nicholasgillespie/ng-design-system.git
+git clone https://github.com/nicholasgillespie/design-system.git
 ```
 
 ### Change directory into the folder created
 
 ```bash
-cd ng-design-system
+cd design-system
 ```
 
 ### Install dependencies

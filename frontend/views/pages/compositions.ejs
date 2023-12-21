@@ -2,27 +2,51 @@
   <header class="u-flow">
     <h1>Com&shy;po&shy;si&shy;tions</h1>
     <p class="[ c-box ][ u-mbs-l u-color-bold u-border-highlight ]">
-      Compositions in this system offer flexible and customizable layout structures, serving as robust toolsets for responsive design.
+      Compositions in this system offer flexible and customizable layout
+      structures, serving as robust toolsets for responsive design.
     </p>
     <h2>Usage</h2>
     <p>
-      These classes follow the <a href="https://cube.fyi/composition.html" target="_blank" rel="noopener noreferrer" aria-label="Learn more about CUBE CSS composition principles">CUBE CSS composition principles</a>.
+      These classes follow the
+      <a
+        href="https://cube.fyi/composition.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Learn more about CUBE CSS composition principles"
+        >CUBE CSS composition principles</a
+      >.
     </p>
     <p>
-      Acting like a skeletal layout structure, they allow for the definition of CSS custom properties within elements to control various aspects. This includes aspects like size, spacing, vertical and horizontal alignment, etc.
+      Acting like a skeletal layout structure, they allow for the definition of
+      CSS custom properties within elements to control various aspects. This
+      includes aspects like size, spacing, vertical and horizontal alignment,
+      etc.
     </p>
   </header>
 
   <h3>Box</h3>
-  <p>The <b>.c-box</b> class provides a padded, customizable container for content. It's used for grouping and demarcating content in various contexts.</p>
+  <p>
+    The <b>.c-box</b> class provides a padded, customizable container for
+    content. It's used for grouping and demarcating content in various contexts.
+  </p>
   <div class="[ c-box ][ u-center u-resize ]">
-    <div class="[ c-box ][ u-border-highlight ]" style="display: inline-block;">box</div>
+    <div class="[ c-box ][ u-border-highlight ]" style="display: inline-block">
+      box
+    </div>
   </div>
   <p>The class file is located here:</p>
-  <a href="https://github.com/nicholasgillespie/ng-design-system/blob/main/frontend/public/scss/styles/compositions/_c-box.scss" aria-label="Link to c-box class file on GitHub" rel="noopener noreferrer">public/<wbr>scss/<wbr>styles/<wbr>compositions<wbr>_c-box.scss</a>
+  <a
+    href="https://github.com/nicholasgillespie/design-system/blob/main/frontend/public/scss/styles/compositions/_c-box.scss"
+    aria-label="Link to c-box class file on GitHub"
+    rel="noopener noreferrer"
+    >public/<wbr />scss/<wbr />styles/<wbr />compositions<wbr />_c-box.scss</a
+  >
 
   <h3>Cluster</h3>
-  <p>The <b>.c-cluster</b> class creates a flexible layout, allowing for the distribution of items with consistent spacing, irrespective of their size.</p>
+  <p>
+    The <b>.c-cluster</b> class creates a flexible layout, allowing for the
+    distribution of items with consistent spacing, irrespective of their size.
+  </p>
   <div class="[ c-box c-cluster ][ u-resize ]">
     <div class="[ c-box ][ u-border-highlight ]">item</div>
     <div class="[ c-box ][ u-border-highlight ]">item</div>
@@ -33,10 +57,18 @@
     <div class="[ c-box ][ u-border-highlight ]">item</div>
   </div>
   <p>The class file is located here:</p>
-  <a href="https://github.com/nicholasgillespie/ng-design-system/blob/main/frontend/public/scss/styles/compositions/_c-cluster.scss" aria-label="Link to c-cluster class file on GitHub" rel="noopener noreferrer">public/<wbr>scss/<wbr>styles/<wbr>compositions<wbr>_c-cluster.scss</a>
+  <a
+    href="https://github.com/nicholasgillespie/design-system/blob/main/frontend/public/scss/styles/compositions/_c-cluster.scss"
+    aria-label="Link to c-cluster class file on GitHub"
+    rel="noopener noreferrer"
+    >public/<wbr />scss/<wbr />styles/<wbr />compositions<wbr />_c-cluster.scss</a
+  >
 
   <h3>Stack</h3>
-  <p>The <b>.c-stack</b> class arranges its children in a column, injecting margin between them via their common parent.</p>
+  <p>
+    The <b>.c-stack</b> class arranges its children in a column, injecting
+    margin between them via their common parent.
+  </p>
   <div class="[ c-box c-stack ][ u-resize ]">
     <div class="[ c-box ][ u-border-highlight ]">item</div>
     <div class="[ c-box c-stack ][ u-border-highlight ]">
@@ -45,25 +77,58 @@
     </div>
   </div>
   <p>The class file is located here:</p>
-  <a href="https://github.com/nicholasgillespie/ng-design-system/blob/main/frontend/public/scss/styles/compositions/_c-stack.scss" aria-label="Link to c-stack class file on GitHub" rel="noopener noreferrer">public/<wbr>scss/<wbr>styles/<wbr>compositions<wbr>_c-stack.scss</a>
+  <a
+    href="https://github.com/nicholasgillespie/design-system/blob/main/frontend/public/scss/styles/compositions/_c-stack.scss"
+    aria-label="Link to c-stack class file on GitHub"
+    rel="noopener noreferrer"
+    >public/<wbr />scss/<wbr />styles/<wbr />compositions<wbr />_c-stack.scss</a
+  >
 
   <h3>Sidebar</h3>
-  <p>The <b>.c-sidebar</b> class creates a fixed-width sidebar and flexible main content area. It aligns side-by-side in wider viewports and stacks vertically in narrow ones.</p>
-  <div class="[ c-box c-sidebar ][ u-resize ]" style="--sidebar-target-width: 7rem; --sidebar-content-min-width: calc(50% - calc(2 * var(--gutter))); --sidebar-gap: var(--gutter)">
+  <p>
+    The <b>.c-sidebar</b> class creates a fixed-width sidebar and flexible main
+    content area. It aligns side-by-side in wider viewports and stacks
+    vertically in narrow ones.
+  </p>
+  <div
+    class="[ c-box c-sidebar ][ u-resize ]"
+    style="
+      --sidebar-target-width: 7rem;
+      --sidebar-content-min-width: calc(50% - calc(2 * var(--gutter)));
+      --sidebar-gap: var(--gutter);
+    "
+  >
     <div class="[ c-box ][ u-border-highlight ]">sidebar</div>
     <div class="[ c-box ][ u-border-highlight ]">main content</div>
   </div>
   <p>The class file is located here:</p>
-  <a href="https://github.com/nicholasgillespie/ng-design-system/blob/main/frontend/public/scss/styles/compositions/_c-sidebar.scss" aria-label="Link to c-sidebar class file on GitHub" rel="noopener noreferrer">public/<wbr>scss/<wbr>styles/<wbr>compositions<wbr>_c-sidebar.scss</a>
-  
+  <a
+    href="https://github.com/nicholasgillespie/design-system/blob/main/frontend/public/scss/styles/compositions/_c-sidebar.scss"
+    aria-label="Link to c-sidebar class file on GitHub"
+    rel="noopener noreferrer"
+    >public/<wbr />scss/<wbr />styles/<wbr />compositions<wbr />_c-sidebar.scss</a
+  >
+
   <h3>Grid RAM</h3>
-  <p>The <b>.c-grid-ram</b> class creates a responsive grid layout with configurable item sizes, using CSS Grid's Repeat, Auto, and Minmax functions.</p>
-  <div class="[ c-box c-grid-ram ][ u-resize ]" style="--grid-ram-min-item-size: 10rem">
+  <p>
+    The <b>.c-grid-ram</b> class creates a responsive grid layout with
+    configurable item sizes, using CSS Grid's Repeat, Auto, and Minmax
+    functions.
+  </p>
+  <div
+    class="[ c-box c-grid-ram ][ u-resize ]"
+    style="--grid-ram-min-item-size: 10rem"
+  >
     <div class="[ c-box ][ u-border-highlight ]">item</div>
     <div class="[ c-box ][ u-border-highlight ]">item</div>
     <div class="[ c-box ][ u-border-highlight ]">item</div>
     <div class="[ c-box ][ u-border-highlight ]">item</div>
   </div>
   <p>The class file is located here:</p>
-  <a href="https://github.com/nicholasgillespie/ng-design-system/blob/main/frontend/public/scss/styles/compositions/_c-grid-ram.scss" aria-label="Link to c-grid-ram class file on GitHub" rel="noopener noreferrer">public/<wbr>scss/<wbr>styles/<wbr>compositions<wbr>_c-grid-ram.scss</a>
+  <a
+    href="https://github.com/nicholasgillespie/design-system/blob/main/frontend/public/scss/styles/compositions/_c-grid-ram.scss"
+    aria-label="Link to c-grid-ram class file on GitHub"
+    rel="noopener noreferrer"
+    >public/<wbr />scss/<wbr />styles/<wbr />compositions<wbr />_c-grid-ram.scss</a
+  >
 </article>
