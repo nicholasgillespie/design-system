@@ -9,7 +9,7 @@
     "start:server:dev": "nodemon --env-file=config.env server.js",
     "compile:sass": "sass --watch frontend/public/scss/styles/index.scss:frontend/public/css/index.css",
     "start": "concurrently \"npm run build:sass\" \"npm run start:server\"",
-    "start:server": "node --env-file=config.env server.js",
+    "start:server": "node server.js",
     "build:sass": "sass frontend/public/scss/styles/index.scss:frontend/public/css/index.css"
   },
   "author": "nicholas gillespie",
