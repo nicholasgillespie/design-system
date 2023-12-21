@@ -1,4 +1,5 @@
 /* IMPORT MODULE //////////////////// */
+import "./backend/utils/config.js";
 import http from "http";
 
 /* IMPORT APP //////////////////// */
