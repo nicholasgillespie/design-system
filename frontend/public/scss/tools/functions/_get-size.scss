@@ -1,0 +1,22 @@
+/// GET-SIZE FUNCTION
+///
+/// This function retrieves a font-size from a map of font-sizes. The keys should be in the format '#', where '#' is a placeholder for a number.
+/// It first checks if a valid key is provided. If not, it throws an error with the available font-sizes.
+/// It then checks if the provided key exists in the map. If not, it throws an error with the available options.
+/// If the key is valid, it retrieves the font associated with the key from the map and returns it.
+///
+/// @param {string} $key - The key corresponding to a font category
+///
+/// @return {list} - The font from the map, or an error if the key is not found or invalid
+///
+@use "../../tokens/t-font-size" as *;
+
+@function get-size($key: null) {
+  @if $key == null or not map-has-key($font-size, $key) {
+    @error "Invalid key '#{$key}' provided. Available font-sizes are: #{map-keys($font-size)}. The key should match one of the available sizes.";
+  }
+
+  @return var(--size-#{$key});
+  // Uncomment the following line to return the font directly from the map instead of using CSS variables
+  // @return map-get($font-size, $key);
+}

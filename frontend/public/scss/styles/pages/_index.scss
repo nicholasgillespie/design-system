@@ -1,0 +1,15 @@
+/// PAGES INDEX
+///
+/// This file serves as a central hub for importing all specific styles for pages and page types, following the CUBE CSS methodology.
+/// Each page has its own dedicated file and is imported here for ease of use and maintainability.
+///
+/// The pages included are:
+/// - Home: Styles specific to the home page.
+/// - About: Styles specific to the about page.
+/// - Contact: Styles specific to the contact page.
+
+@forward "p-welcome";
+@forward "p-colors";
+@forward "p-typography";
+@forward "p-spacing";
+@forward "p-404";

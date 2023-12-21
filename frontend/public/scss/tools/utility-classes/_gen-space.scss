@@ -1,0 +1,50 @@
+/// GEN-SPACE FILE
+///
+/// This file generates CSS classes for each space size and combination of sizes defined in the $spacing map from the t-space-sizes-fluid tokens file.
+///
+/// The nested @each loops iterate over each space size and combination of sizes in the $spacing map.
+/// For each space size and combination of sizes, it generates CSS classes for each CSS property defined in the $classes map.
+/// The class names are .u-{class}-{size} or .u-{class}-{size1}-{size2}.
+///
+/// If the class is for a single space size, it sets the CSS property of the class to the corresponding space size value from the $spacing map.
+/// If the class is for a combination of space sizes, it sets the CSS property of the class to a calculated value based on the min and max values of the corresponding space sizes and the --fluid-bp variable.
+///
+/// The resulting CSS classes can be used to apply the corresponding margin or padding to any element by adding the class to the element's class list.
+///
+/// Note: The actual margin or padding applied by each class is determined by the values set in the $spacing map and the --fluid-bp variable.
+///
+@use "../../tokens/t-space-size" as *;
+@use "../../tokens/t-font-size" as *;
+
+$classes: (
+  "m": "margin",
+  "mb": "margin-block",
+  "mbs": "margin-block-start",
+  "mbe": "margin-block-end",
+  "mi": "margin-inline",
+  "mis": "margin-inline-start",
+  "mie": "margin-inline-end",
+  "p": "padding",
+  "pb": "padding-block",
+  "pbs": "padding-block-start",
+  "pbe": "padding-block-end",
+  "pi": "padding-inline",
+  "pis": "padding-inline-start",
+  "pie": "padding-inline-end",
+);
+
+@each $key, $value in $space-size {
+  @each $class, $property in $classes {
+    .u-#{$class}-#{$key} {
+      #{$property}: var(--space-#{$key});
+    }
+  }
+}
+
+@each $key, $value in $font-size {
+  @each $class, $property in $classes {
+    .u-#{$class}-size-#{$key} {
+      #{$property}: var(--size-#{$key});
+    }
+  }
+}

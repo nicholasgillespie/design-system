@@ -1,0 +1,53 @@
+/// SPACE-SIZE TOKEN
+///
+/// This file defines a map of space sizes (`$space-size`) with min and max values derived from the min and max of `$f-0-min` and `$f-0-max` in the font-size file.
+/// The map is populated using `calc-step` for each size (3xs, 2xs, xs, m, l, xl, 2xl, 3xl) based on $_fc-s-min and $_fc-s-max.
+/// Use the `get-space-size` function to retrieve a specific space size from the map.
+///
+/// Example usage: `get-space-size("m")`
+///
+@use "./t-font-size" as *;
+@use "../tools/functions/helpers/process-calc-step" as *;
+
+$_fc-s-min: if(variable-exists("f-0-min"), $f-0-min, 18);
+$_fc-s-max: if(variable-exists("f-0-max"), $f-0-max, 20);
+
+$_fc-3xs-min: $_fc-s-min * 0.25;
+$_fc-3xs-max: $_fc-s-max * 0.25;
+$_fc-2xs-min: $_fc-s-min * 0.5;
+$_fc-2xs-max: $_fc-s-max * 0.5;
+$_fc-xs-min: $_fc-s-min * 0.75;
+$_fc-xs-max: $_fc-s-max * 0.75;
+$_fc-m-min: $_fc-s-min * 1.5;
+$_fc-m-max: $_fc-s-max * 1.5;
+$_fc-l-min: $_fc-s-min * 2;
+$_fc-l-max: $_fc-s-max * 2;
+$_fc-xl-min: $_fc-s-min * 3;
+$_fc-xl-max: $_fc-s-max * 3;
+$_fc-2xl-min: $_fc-s-min * 4;
+$_fc-2xl-max: $_fc-s-max * 4;
+$_fc-3xl-min: $_fc-s-min * 6;
+$_fc-3xl-max: $_fc-s-max * 6;
+
+$space-size: (
+  // T-shirt sizes
+  "3xs": calc-step($_fc-3xs-min, $_fc-3xs-max),
+  "2xs": calc-step($_fc-2xs-min, $_fc-2xs-max),
+  "xs": calc-step($_fc-xs-min, $_fc-xs-max),
+  "s": var(--size-base),
+  "m": calc-step($_fc-m-min, $_fc-m-max),
+  "l": calc-step($_fc-l-min, $_fc-l-max),
+  "xl": calc-step($_fc-xl-min, $_fc-xl-max),
+  "2xl": calc-step($_fc-2xl-min, $_fc-2xl-max),
+  "3xl": calc-step($_fc-3xl-min, $_fc-3xl-max),
+  // One-up pairs
+  "s-m": calc-step($_fc-s-min, $_fc-m-max),
+  "m-l": calc-step($_fc-s-min, $_fc-l-max),
+  // Custom pairs
+  "s-l": calc-step($_fc-s-min, $_fc-l-max)
+);
+
+// DEBUG
+// @each $key, $value in $space-size {
+//   @debug "Key: #{$key}, Value: #{$value}";
+// }

@@ -1,0 +1,23 @@
+/// COLOR PALETTE TOKEN
+///
+/// This file defines a map of color tokens for the application.
+/// It includes different categories for various color sets.
+/// Use the `get-color` function to retrieve color values from the $color-palette map.
+///
+/// Example usage: `get-color("core", "primary")`
+
+$color-palette: (
+  "core": (
+    "primary": #7553c6,
+  ),
+  "shade": (
+    "dark": hsl(0, 0%, 0%),
+    "dim": hsl(0, 0%, 14%),
+    "charcoal": hsl(0, 0%, 29%),
+    "gray": hsl(0, 0%, 43%),
+    "gray-bright": hsl(0, 0%, 57%),
+    "gray-glare": hsl(0, 0%, 71%),
+    "light": hsl(0, 0%, 86%),
+    "light-bright": hsl(0, 0%, 100%),
+  ),
+);

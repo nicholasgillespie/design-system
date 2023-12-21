@@ -1,0 +1,30 @@
+/// SET COLOR THEME FUNCTION
+///
+/// This function generates a map of CSS custom properties for each color in the active theme.
+/// It first determines the active theme based on the `$theme` argument.
+/// It then initializes an empty map to store the CSS custom properties.
+/// It iterates over the colors in the active theme. For each color, it adds a CSS custom property to the map. The property name is in the format `--theme-{group}-{key}`, and the value is a reference to a CSS custom property in the format `--color-{group}-{key}`.
+/// The resulting map can be used to set CSS custom properties for color values in a stylesheet.
+///
+/// @return {map} - The map of CSS custom properties in the format (--theme-{group}-{key}: var(--color-{group}-{key}))
+///
+/// Note: The $theme argument defaults to "light" if not provided.
+///
+@use "../../tokens/t-color-theme" as *;
+
+@function set-color-theme($theme: light) {
+  $active-theme: if($theme == "light", $light, $dark);
+  $color-scheme-variables: ();
+  @each $group, $group-map in $active-theme {
+    @each $key, $value in $group-map {
+      $color-scheme-variables: map-merge(
+        $color-scheme-variables,
+        (
+          --theme-#{$group}-#{$key}:
+            var(--color-#{nth($value, 1)}-#{nth($value, 2)})
+        )
+      );
+    }
+  }
+  @return $color-scheme-variables;
+}

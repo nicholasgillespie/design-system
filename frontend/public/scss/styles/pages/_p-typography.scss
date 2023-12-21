@@ -1,0 +1,13 @@
+@use "../../tools/functions" as *;
+
+.p-typography {
+  .b-demo-sizes {
+    li {
+      em {
+        font-size: 0.5em;
+        letter-spacing: get-letter-spacing("extra-tight");
+        font-weight: get-font-weight("base");
+      }
+    }
+  }
+}

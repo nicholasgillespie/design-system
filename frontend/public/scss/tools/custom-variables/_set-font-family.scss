@@ -1,0 +1,21 @@
+/// SET-FONTS-VARIABLES FUNCTION
+///
+/// This function generates a map of CSS variables for each font in the `$font-family` map.
+/// It initializes an empty map to store the CSS variables.
+/// It then iterates over the fonts in the `$font-family` map. For each font, it adds a CSS variable to the map. The variable name is in the format `--font-{font-name}`, and the value is the font stack.
+/// The function returns the map of CSS variables.
+///
+/// @return {map} - The map of CSS variables in the format (--font-{font-name}: font stack)
+///
+@use "../../tokens/t-font-family" as *;
+
+@function set-font-family() {
+  $font-family-variables: ();
+  @each $key, $value in $font-family {
+    $font-family-variables: map-merge(
+      $font-family-variables,
+      (--font-family-#{$key}: #{$value})
+    );
+  }
+  @return $font-family-variables;
+}

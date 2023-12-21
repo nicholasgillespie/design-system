@@ -1,0 +1,25 @@
+/// GEN-BORDER FILE
+///
+/// This file generates CSS utility classes for each border attribute category in the `$border-styles`, `$border-widths`, and `$border-radii` maps.
+/// Each class applies the corresponding border style, width, or radius to an element.
+/// The border attribute applied is determined by the respective map.
+///
+@use "../../tokens/t-border" as *;
+
+@each $key, $value in $border-style {
+  .u-border-style-#{$key} {
+    border-style: $value;
+  }
+}
+
+@each $key, $value in $border-width {
+  .u-border-width-#{$key} {
+    border-width: $value;
+  }
+}
+
+@each $key, $value in $border-radii {
+  .u-border-radius-#{$key} {
+    border-radius: $value;
+  }
+}

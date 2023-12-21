@@ -1,0 +1,16 @@
+/// SCREEN READER ONLY UTILITY
+///
+/// This utility class hides an element visually but keeps it accessible to screen readers.
+/// More info: https://www.a11yproject.com/posts/how-to-hide-content/
+///
+/// The .u-sr-only class applies styles to an element that remove it from the visual flow of the document, but keep it accessible to assistive technologies. It uses a combination of clipping and positioning techniques to achieve this effect.
+
+.u-sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  block-size: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  inline-size: 1px;
+}

@@ -1,0 +1,117 @@
+
+
+        <article class="u-flow">
+          <header class="u-flow">
+            <h1>Typo&shy;gra&shy;phy</h1>
+            <div class="c-cluster" data-flow="2em">
+              <a href="#sizes">Sizes</a>
+              <a href="#fonts">Fonts</a>
+            </div>
+          </header>
+          <h2 id="sizes">Sizes</h2>
+          <% const sizes = [
+            { size: '-2', min: '12.50', max: '11.25' },
+            { size: '-1', min: '15.00', max: '15.00' },
+            { size: 'base', min: '18.00', max: '20.00' },
+            { size: '1', min: '21.60', max: '26.66' },
+            { size: '2', min: '25.92', max: '35.54' },
+            { size: '3', min: '31.10', max: '47.37' },
+            { size: '4', min: '37.32', max: '63.14' },
+            { size: '5', min: '44.78', max: '84.17' },
+          ]; %>
+          <div class="[ c-box ][ u-color-bold u-border-highlight ]">
+            <p>
+              Text sizes in this system dynamically adjust to the viewport size using a fluid scale, ensuring balanced typography across devices.
+            </p>
+          </div>
+          <ul role="list" class="[ b-demo-sizes ][ c-stack ][ u-mbs-size-2 ]">
+            <% sizes.forEach(size => { %>
+              <li class="u-size-<%= size.size %> u-font-weight-bold">
+                <span class="u-color-bold">Size <%= size.size %></span><em> <%= size.min %>px / <%= size.max %>px</em>
+              </li>
+            <% }) %>
+          </ul>
+
+          <h3>Font Size Token</h3>
+          <p>The token for the font-sizes is located here:</p>
+          <a href="https://github.com/nicholasgillespie/ng-design-system/blob/main/frontend/public/scss/tokens/_t-font-size.scss" aria-label="Link to font size token file on GitHub" rel="noopener noreferrer">public/<wbr>scss/<wbr>tokens/<wbr>_t-font-size.scss</a>
+
+          <h3>Usage</h3>
+          <div class="[ c-box ][ u-horizontal-scroll ]">
+            <table>
+              <caption class="u-sr-only">
+                Usage of utility classes, Sass functions, and CSS variables for text sizes.
+              </caption>
+              <thead>
+                <tr>
+                  <th>Sass Function</th>
+                  <th>Utility Class</th>
+                  <th>CSS variables</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% sizes.forEach(size => { %>
+                  <tr>
+                    <td>get-size(<%= size.size === 'base' ? `"${size.size}"` : size.size %>)</td>
+                    <td>.u-size-<%= size.size %></td>
+                    <td>var(--size-<%= size.size %>)</td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <div class="u-theme-break" style="--theme-break-mbs: var(--gutter)"></div>
+
+        <article class="u-flow u-mbs-size-4">
+          <h2 id="fonts">Fonts</h2>
+          <% const fonts = [
+            { name: 'base', description: 'main content.' },
+            { name: 'brand', description: 'headings.' },
+            { name: 'code', description: 'code samples etc.' },
+          ]; %>
+          <div class="[ c-box ][ u-flow u-color-bold u-border-highlight ]">
+            <p>
+              This project employs the <a href="https://systemfontstack.com/" target="_blank" rel="noopener noreferrer">system font stack</a> to ensure efficiency, consistency, and a familiar user experience. Leveraging readily available fonts on most devices, it promotes faster loading times, a cohesive design across platforms, and widespread language support.
+            </p>
+            <p>For the purpose of this demonstration, a different 'brand' font has been included.</p>
+          </div>
+          <ul role="list" class="[ c-stack ][ u-mbs-size-2 ]">
+            <% fonts.forEach(font => { %>
+              <li>
+                <p class="u-font-family-<%= font.name %> u-size-3 u-color-bold" style="text-transform: capitalize;"><%= font.name %></p>
+                <em><%= font.description %></em>
+              </li>
+            <% }) %>
+          </ul>
+
+          <h3>Font Family Token</h3>
+          <p>The token for the font families is located here:</p>
+          <a href="https://github.com/nicholasgillespie/ng-design-system/blob/main/frontend/public/scss/tokens/_t-font-family.scss" aria-label="Link to font family token file on GitHub" rel="noopener noreferrer">public/<wbr>scss/<wbr>tokens/<wbr>_t-font-family.scss</a>
+          
+          <h3>Usage</h3>
+          <div class="[ c-box ][ u-horizontal-scroll ]">
+            <table>
+              <caption class="u-sr-only">
+                Usage of utility classes, Sass functions, and CSS variables for font styles.
+              </caption>
+              <thead>
+                <tr>
+                  <th>Sass Function</th>
+                  <th>Utility Class</th>
+                  <th>CSS Variable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% fonts.forEach(font => { %>
+                  <tr>
+                    <td>get-font-family("<%= font.name %>")</td>
+                    <td>.u-font-family-<%= font.name %></td>
+                    <td>var(--font-family-<%= font.name %>)</td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </article>

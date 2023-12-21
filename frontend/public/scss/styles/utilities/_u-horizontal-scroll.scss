@@ -1,0 +1,8 @@
+/// HORIZONTAL SCROLL UTILITY
+///
+/// This utility class applies horizontal scrolling to an element. It sets the overflow-x property to "auto", allowing the element's content to overflow along the x-axis if it's too wide for its container. It also sets the white-space property to "nowrap" to prevent the content from wrapping onto a new line.
+
+.u-horizontal-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}

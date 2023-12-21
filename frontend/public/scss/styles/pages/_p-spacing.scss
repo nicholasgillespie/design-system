@@ -1,0 +1,17 @@
+.b-spacing-demo {
+  overflow: hidden;
+  --stack-space: 1rem;
+  --flow-space: 0.5em;
+
+  .b-demo-block {
+    display: inline-block;
+  }
+}
+
+.b-spacing-usage {
+  padding-inline-start: 2ch;
+
+  li {
+    padding-inline-start: calc(1em - 0.5ch);
+  }
+}

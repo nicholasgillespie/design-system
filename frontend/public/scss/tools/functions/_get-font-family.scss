@@ -1,0 +1,22 @@
+/// GET-FONT-FAMILY FUNCTION
+///
+/// This function retrieves a font from a map of fonts. The key should correspond to a font category, for example 'base', 'brand', or 'mono'.
+/// It first checks if a valid key is provided. If not, it throws an error with the available fonts.
+/// It then checks if the provided key exists in the map. If not, it throws an error with the available options.
+/// If the key is valid, it retrieves the font associated with the key from the map and returns it.
+///
+/// @param {string} $key - The key corresponding to a font category
+///
+/// @return {list} - The font from the map, or an error if the key is not found or invalid
+///
+@use "../../tokens/t-font-family" as *;
+
+@function get-font-family($key: null) {
+  @if $key == null or not map-has-key($font-family, $key) {
+    @error "Invalid key '#{$key}' provided. Available fonts are: #{map-keys($font-family)}. The key should match one of the available fonts.";
+  }
+
+  @return var(--font-family-#{$key});
+  // Uncomment the following line to return the font directly from the map instead of using CSS variables
+  // @return map-get($font-family, $key);
+}

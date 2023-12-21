@@ -1,0 +1,27 @@
+/// GRID-RAM (RAM: Repeat, Auto, Minmax)
+///
+/// A flexible layout component that creates an auto-fill grid with configurable grid item sizes.
+/// More info: https://piccalil.li/tutorial/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/
+///
+/// CUSTOM PROPERTIES AND CONFIGURATION
+/// --grid-ram-gap: Defines the space between each grid item. Defaults to the value of --gutter if not specified.
+/// --grid-ram-min-item-size (16rem): Specifies the ideal minimum size for each grid item.
+/// --grid-ram-placement (auto-fill): Can be set to either auto-fit or auto-fill to determine how empty grid tracks are handled.
+///
+/// The .c-grid-ram class uses these custom properties to set its grid properties. If a custom property is not specified, it falls back to a default value.
+
+.c-grid-ram {
+  --_grid-ram-placement: auto-fill;
+  --_grid-ram-min-item-size: 16rem;
+  --_grid-ram-gap: var(--gutter, 1rem);
+
+  display: grid;
+  grid-template-columns: repeat(
+    var(--grid-ram-placement, var(--_grid-ram-placement)),
+    minmax(
+      min(var(--grid-ram-min-item-size, var(--_grid-ram-min-item-size)), 100%),
+      1fr
+    )
+  );
+  grid-gap: var(--grid-ram-gap, var(--_grid-ram-gap));
+}

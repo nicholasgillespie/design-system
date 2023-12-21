@@ -1,0 +1,289 @@
+/// GLOBAL STYLES
+///
+/// This file contains styles that apply globally across the project.
+/// It includes a local reset, scroll behavior settings, and global settings for the body element.
+///
+@use "../../tools/functions" as *;
+
+// LOCAL RESET ////////////////////
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  // outline: solid 1px hotpink;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// GLOBAL SETTINGS ////////////////////
+body {
+  text-rendering: optimizeSpeed;
+  background-color: get-theme("bg", "base");
+  color: get-theme("color", "base");
+  font-size: get-size("base");
+  font-family: get-font-family("base");
+  font-weight: get-font-weight("base");
+  line-height: get-line-height("base");
+  word-break: break-word;
+}
+
+// DOCUMENT STRUCTURE ////////////////////
+body > .c-sidebar {
+  --sidebar-gap: #{get-border-width("bold")};
+  --sidebar-target-width: 18rem;
+  --sidebar-content-min-width: 70%;
+  min-block-size: 100vh;
+}
+
+main {
+  .c-stack {
+    --stack-align-items: stretch;
+  }
+}
+
+footer {
+  --stack-space: 0;
+  --cluster-justify-content: space-between;
+  padding: 0 var(--gutter) var(--gutter) var(--gutter);
+
+  @media (max-width: 444px) {
+    .c-cluster {
+      --cluster-justify-content: center;
+
+      & > :nth-child(2) {
+        order: 1;
+      }
+    }
+  }
+}
+
+// TYPOGRAPHY ////////////////////
+h1,
+h2,
+h3,
+h4 {
+  font-family: get-font-family("base");
+  font-weight: get-font-weight("bold");
+  color: get-theme("color", "bold");
+  line-height: get-line-height("extra-tight");
+  hyphens: auto;
+}
+
+h1 {
+  font-size: get-size(5);
+  max-inline-size: 30ch;
+  letter-spacing: get-letter-spacing("tight");
+}
+
+h2 {
+  font-size: get-size(4);
+}
+
+h3 {
+  font-size: get-size(3);
+}
+
+h4 {
+  font-size: get-size(2);
+}
+
+// CONTENT ELEMENTS ////////////////////
+// TEXT ELEMENTS
+p {
+  max-inline-size: var(--measure, 75ch);
+}
+
+b {
+  color: get-theme("color", "highlight");
+}
+
+pre {
+  line-height: get-line-height("tight");
+}
+
+code {
+  white-space: pre;
+}
+
+// LIST ELEMENTS
+
+// FORM ELEMENTS
+
+// TABLE ELEMENTS
+table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  border: none;
+}
+
+thead {
+  color: get-theme("color", "bold");
+  font-weight: get-font-weight("base");
+}
+
+tbody {
+  &::before {
+    content: "";
+    --box-padding: var(--gutter);
+    display: block;
+    block-size: calc(var(--box-padding) / 2);
+  }
+
+  tr {
+    &:first-child {
+      td {
+        padding-block-start: 0;
+      }
+    }
+
+    &:last-child td {
+      padding-block-end: 0;
+    }
+  }
+}
+
+td {
+  padding-block: 0.2ch;
+}
+
+th,
+td {
+  text-align: start;
+  padding-inline-end: get-space(s);
+}
+
+// IMAGE & SVG ELEMENTS
+img,
+svg,
+picture {
+  max-inline-size: 100%;
+  display: block;
+}
+
+// INTERACTIVE ELEMENTS ////////////////////
+// A ELEMENT SPECIFICS
+.u-link,
+a {
+  color: get-theme("color", "bold");
+  text-decoration: underline;
+  text-decoration-color: get-theme("border", "highlight");
+  font-weight: get-font-weight("bold");
+
+  &:hover,
+  &:focus {
+    color: get-theme("border", "highlight");
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &[aria-current="page"] {
+    color: get-theme("color", "highlight");
+    text-decoration: none;
+    cursor: default;
+  }
+}
+
+// BUTTON STYLES
+.b-button,
+button {
+  padding-block: get-space(xs);
+  padding-inline: get-space(s);
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  line-height: 1;
+  border-style: get-border-style("base");
+  border-width: get-border-width("medium");
+  font-size: inherit;
+  background-color: transparent;
+  color: get-theme("color", "bold");
+  font-weight: get-font-weight("bold");
+  text-decoration: underline;
+  text-decoration-color: get-theme("border", "highlight");
+  text-align: start;
+
+  &:hover,
+  &:focus {
+    color: get-theme("border", "highlight");
+    text-decoration: none;
+  }
+
+  &.u-link {
+    padding: 0 0 0.2ch;
+    outline-offset: 0.65ch;
+    border: none;
+    min-inline-size: unset;
+  }
+}
+
+// INTERACTIVE STATES ////////////////////
+// SELECTION
+
+// FOCUS AND TARGET STATES
+:focus {
+  outline-offset: 0.65ch;
+}
+
+:target {
+  scroll-margin-block: 2ex;
+}
+
+// INTERFACE ELEMENTS ////////////////////
+// SELECTION
+::selection {
+  color: get-theme("color", "bold");
+  background: get-color("core", "primary");
+}
+
+// SKIP LINK
+.skip-link {
+  &-container {
+    position: absolute;
+    inset-block-start: 0.5em;
+    z-index: 999;
+  }
+
+  & {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-block-size: 100%;
+    font-family: get-font-family("code");
+    font-size: get-size(-1);
+  }
+
+  &:not(:focus) {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+  }
+}
+
+// SCROLLBAR ////////////////////

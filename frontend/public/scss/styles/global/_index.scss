@@ -1,0 +1,17 @@
+/// GLOBAL INDEX
+///
+/// This file serves as a central hub for importing all global styles.
+/// Each global style has its own dedicated file and is imported here for ease of use and maintainability.
+///
+/// The global styles included are:
+/// - Reset: Applies a set of reset styles to remove browser defaults.
+/// - Fonts: Imports and defines custom fonts for the project.
+/// - Root: Defines global custom properties and sets base styles on the root element.
+/// - Variables: Defines global SCSS variables for use throughout the project.
+/// - Global Styles: Contains styles that apply globally across the entire project.
+
+// @forward "g-reset";
+// @forward "g-fonts";
+@forward "g-root";
+// @forward "g-variables";
+@forward "g-global-styles";

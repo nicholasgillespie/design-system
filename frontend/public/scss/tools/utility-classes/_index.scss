@@ -1,0 +1,13 @@
+/// UTILITY CLASSES INDEX
+///
+/// This file serves as a central hub for importing all SCSS utility classes.
+/// These classes utilize design tokens and abstracts to generate consistent and reusable styles for colors, fonts, and sizes across the UI.
+/// Each utility class has its own dedicated file and is imported here for ease of use and maintainability.
+
+@forward "gen-border";
+@forward "gen-color-palette";
+@forward "gen-color-theme";
+@forward "gen-font-family";
+@forward "gen-font-weight";
+@forward "gen-size";
+@forward "gen-space";

@@ -1,0 +1,15 @@
+/// RESIZE
+///
+/// Allows an element to be resized horizontally by the user.
+/// The resize property specifies whether an element should be resizable by the user.
+/// Note: The resize property applies to block-level elements and replaced inline-level elements.
+///
+@use "../../tools/functions" as *;
+
+.u-resize {
+  resize: horizontal;
+  overflow: hidden;
+  max-inline-size: calc(
+    100% - calc(2 * var(--gutter) + 2 * get-border-width("bold"))
+  );
+}

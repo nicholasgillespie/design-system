@@ -1,0 +1,21 @@
+/// GEN-COLOR-PALETTE FILE
+///
+/// This file generates CSS classes for each color defined in the `$color-palette` map from the t-color-palette tokens file.
+/// It iterates over the colors in the map. For each color, it generates two CSS classes: `.u-bg-{category}-{key}` and `.u-color-{category}-{key}`.
+/// The `.u-bg-{category}-{key}` class sets the background-color property to the CSS variable corresponding to the color.
+/// The `.u-color-{category}-{key}` class sets the color property to the CSS variable corresponding to the color.
+/// The resulting CSS classes can be used to apply the corresponding color or background color to any element by adding the class to the element's class list.
+///
+@use "../../tokens/t-color-palette" as *;
+
+@each $category, $colors in $color-palette {
+  @each $key, $value in $colors {
+    .u-bg-#{$category}-#{$key} {
+      background-color: var(--color-#{$category}-#{$key});
+    }
+
+    .u-color-#{$category}-#{$key} {
+      color: var(--color-#{$category}-#{$key});
+    }
+  }
+}

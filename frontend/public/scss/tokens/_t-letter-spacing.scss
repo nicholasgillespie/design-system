@@ -1,0 +1,15 @@
+/// LETTER SPACING TOKEN
+///
+/// This file defines a map of letter spacings for different text styles.
+/// Use the `get-letter-spacing` function to retrieve a specific letter spacing from the map.
+///
+/// Example usage: `get-letter-spacing("base")`
+
+$letter-spacing: (
+  "super-extra-tight": -0.15ch,
+  "extra-tight": -0.075ch,
+  "tight": -0.05ch,
+  "base": 0,
+  "wide": 0.1ch,
+  "extra-wide": 0.2ch,
+);

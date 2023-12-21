@@ -1,0 +1,22 @@
+/// GET-FONT-WEIGHT FUNCTION
+///
+/// This function retrieves a font weight from a map of font weights. The key should correspond to a font weight category, for example 'base' or 'bold'.
+/// It first checks if a valid key is provided. If not, it throws an error with the available font weights.
+/// It then checks if the provided key exists in the map. If not, it throws an error with the available options.
+/// If the key is valid, it retrieves the font weight associated with the key from the map and returns it.
+///
+/// @param {string} $key - The key corresponding to a font weight category
+///
+/// @return {number} - The font weight from the map, or an error if the key is not found or invalid
+///
+@use "../../tokens/t-font-weight" as *;
+
+@function get-font-weight($key: null) {
+  @if $key == null or not map-has-key($font-weight, $key) {
+    @error "Invalid key '#{$key}' provided. Available weights are: #{map-keys($font-weight)}. The key should match one of the available weights.";
+  }
+
+  // @return var(--font-weight-#{$key});
+  // Uncomment the following line to return the font directly from the map instead of using CSS variables
+  @return map-get($font-weight, $key);
+}

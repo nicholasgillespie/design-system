@@ -1,0 +1,28 @@
+/// CLUSTER
+///
+/// A layout component that allows for the distribution of items with consistent
+/// spacing, irrespective of their size. It uses CSS Flexbox to achieve this layout.
+/// More info: https://every-layout.dev/layouts/cluster/
+///
+/// CUSTOM PROPERTIES AND CONFIGURATION
+/// --cluster-flex-direction (row): Sets the direction of items in the flex container.
+/// --cluster-justify-content (flex-start): Sets the horizontal alignment of items. Accepts any valid flexbox alignment value.
+/// --cluster-align-items (center): Sets the vertical alignment of items. Accepts any valid flexbox alignment value.
+/// --cluster-gap: Defines the space between rows and columns in the flex container. Defaults to the value of --gutter if not specified.
+///
+/// The .c-cluster class uses these custom properties to set its flexbox properties and gap. If a custom property is not specified, it falls back to a default value.
+
+.c-cluster {
+  --_cluster-gap: var(--gutter, 1rem);
+
+  display: flex;
+  flex-wrap: var(--cluster-flex-wrap, wrap);
+  flex-direction: var(--cluster-flex-direction, row);
+  justify-content: var(--cluster-justify-content, flex-start);
+  align-items: var(--cluster-align-items, center);
+  gap: var(--cluster-gap, var(--_cluster-gap));
+
+  &[data-cluster="space-between"] {
+    --cluster-justify-content: space-between;
+  }
+}

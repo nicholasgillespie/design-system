@@ -1,0 +1,13 @@
+/// GEN-FONT-FAMILY FILE
+///
+/// This file generates CSS utility classes for each font category in the `$font-family` map.
+/// Each class applies the corresponding font family to an element.
+/// The font family applied is determined by the `$font-family` map.
+///
+@use "../../tokens/t-font-family" as *;
+
+@each $key, $value in $font-family {
+  .u-font-family-#{$key} {
+    font-family: var(--font-family-#{$key});
+  }
+}

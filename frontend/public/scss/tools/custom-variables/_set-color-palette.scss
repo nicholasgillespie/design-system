@@ -1,0 +1,23 @@
+/// SET COLOR PALETTE FUNCTION
+///
+/// This function generates a map of CSS custom properties for each color in the `$color-palette` map.
+/// It initializes an empty map to store the CSS custom properties.
+/// It then iterates over the colors in the map. For each color, it adds a CSS custom property to the map. The property name is in the format `--color-{group}-{key}`, and the value is the color value.
+/// The resulting map can be used to set CSS custom properties for color values in a stylesheet.
+///
+/// @return {map} - The map of CSS custom properties in the format (--color-{group}-{key}: color value)
+///
+@use "../../tokens/t-color-palette" as *;
+
+@function set-color-palette() {
+  $color-variables: ();
+  @each $group, $group-map in $color-palette {
+    @each $key, $value in $group-map {
+      $color-variables: map-merge(
+        $color-variables,
+        (--color-#{$group}-#{$key}: $value)
+      );
+    }
+  }
+  @return $color-variables;
+}

@@ -1,0 +1,27 @@
+/// WRAPPER
+///
+/// Sets a max width, adds a consistent gutter and horizontally centers the contents.
+/// More info: https://piccalil.li/quick-tip/use-css-clamp-to-create-a-more-flexible-wrapper-utility/
+///
+/// CUSTOM PROPERTIES AND CONFIGURATION
+/// --wrapper-max-inline-size: Defines the maximum width of the wrapper.
+/// --wrapper-padding-inline: Defines the padding on the left and right of the wrapper.
+///
+@use "../../tokens/core-values" as *;
+
+.u-wrapper {
+  --_wrapper-max-inline-size: calc(var(--measure) + 2 * var(--gutter));
+  --_wrapper-padding-inline: var(--gutter, 1rem);
+
+  margin-inline: auto;
+  max-inline-size: var(
+    --wrapper-max-inline-size,
+    var(--_wrapper-max-inline-size)
+  );
+  padding-inline: var(--wrapper-padding-inline, var(--_wrapper-padding-inline));
+  position: relative;
+
+  &[data-wrapper="large"] {
+    --wrapper-max-inline-size: min(calc(1440px - 20rem), 100%);
+  }
+}

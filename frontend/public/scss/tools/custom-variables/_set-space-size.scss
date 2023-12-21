@@ -1,0 +1,20 @@
+/// SET-SPACE-SIZE-VARIABLES FUNCTION
+///
+/// This function generates a map of CSS variables for each space size in the `$space-size` map.
+/// It initializes an empty map to store the CSS variables.
+/// It then iterates over the space sizes in the map. For each space size, it adds a CSS variable to the map. The variable name is in the format `--space-{name}`, and the value is the calculated value.
+///
+/// @return {map} - The map of CSS variables in the format (--space-{name}: calculated value)
+///
+@use "../../tokens/t-space-size" as *;
+
+@function set-space-size() {
+  $space-size-variables: ();
+  @each $name, $value in $space-size {
+    $space-size-variables: map-merge(
+      $space-size-variables,
+      (--space-#{$name}: #{$value})
+    );
+  }
+  @return $space-size-variables;
+}

@@ -1,0 +1,48 @@
+/// SIDEBAR
+///
+/// A layout that allows you to have a flexible main content area
+/// and a "fixed" width sidebar that sits on the left or right.
+/// If there is not enough viewport space to fit both the sidebar
+/// width *and* the main content minimum width, they will stack
+/// on top of each other.
+/// More info: https://every-layout.dev/layouts/sidebar/
+///
+/// CUSTOM PROPERTIES AND CONFIGURATION
+/// --sidebar-gap: Defines the space between the sidebar and main content. Defaults to --gutter if not specified.
+/// --sidebar-target-width (20rem): Specifies the width of the sidebar.
+/// --sidebar-content-min-width (60%): Specifies the minimum width of the main content area.
+///
+/// EXCEPTIONS
+/// [data-sidebar='rtl']: Flips the sidebar to be on the right.
+///
+/// The .c-sidebar class uses these custom properties to set its flexbox properties and gap. If a custom property is not specified, it falls back to a default value.
+///
+@use "../../tools/functions/" as *;
+
+.c-sidebar {
+  --_sidebar-gap: var(--gutter, 1rem);
+  --_sidebar-target-width: 20rem;
+  --_sidebar-content-min-width: 60%;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sidebar-gap, var(--_sidebar-gap));
+
+  & > :first-child {
+    flex-basis: var(--sidebar-target-width, var(--_sidebar-target-width));
+    flex-grow: 1;
+  }
+
+  & > :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: var(
+      --sidebar-content-min-width,
+      var(--_sidebar-content-min-width)
+    );
+  }
+
+  &[data-sidebar="rtl"] {
+    flex-direction: row-reverse;
+  }
+}

@@ -1,0 +1,11 @@
+/// COMPOSITIONS INDEX
+///
+/// This file serves as a central hub for importing all composition styles.
+/// Each composition is defined in its own dedicated file for modularity and ease of maintenance.
+/// The styles are then imported here, providing a single point of access for all composition styles.
+
+@forward "c-box";
+@forward "c-cluster";
+@forward "c-grid-ram";
+@forward "c-sidebar";
+@forward "c-stack";

@@ -1,0 +1,25 @@
+/// GEN-COLOR-THEME FILE
+///
+/// This file generates CSS classes for each color defined in the `$active-theme` map from the t-color-theme tokens file.
+/// It iterates over the colors in the map. For each color, it generates a CSS class: `.u-{category}-{key}`.
+/// Depending on the category, it sets the appropriate CSS property (color, background-color) of the `.u-{category}-{key}` class to the CSS variable corresponding to the color.
+/// The resulting CSS classes can be used to apply the corresponding color or background color to any element by adding the class to the element's class list.
+///
+@use "../../tokens/t-color-theme" as *;
+
+$property-map: (
+  "bg": "background-color",
+  "color": "color",
+  "border": "border-color",
+  // Add more categories and corresponding CSS properties as needed
+);
+
+@each $category, $colors in $active-theme {
+  $property: map-get($property-map, $category);
+
+  @each $key, $value in $colors {
+    .u-#{$category}-#{$key} {
+      #{$property}: var(--theme-#{$category}-#{$key});
+    }
+  }
+}

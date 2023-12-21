@@ -1,0 +1,49 @@
+/// COLOR THEME TOKEN
+///
+/// This file defines color theme maps for different themes.
+/// Each map contains categories (like "bg" for background color and "color" for text color) and keys for different color variants.
+/// Use the `get-theme` function to retrieve color values from the theme maps.
+///
+/// Example usage: `get-theme("bg", "base")`
+///
+/// IMPORTANT: When updating one of the theme maps, ensure to update the others to maintain consistency between themes.
+/// Also, remember to update the $property-map and the utility class generator in the _gen-color-theme.scss file accordingly.
+///
+@use "./t-color-palette" as *;
+@use "../tools/functions/helpers/process-color" as *;
+
+$light: (
+  "bg": (
+    "base": color("shade", "light-bright"),
+    "highlight": color("shade", "dark"),
+  ),
+  "color": (
+    "base": color("shade", "dim"),
+    "bold": color("shade", "dark"),
+    "highlight": color("shade", "dark"),
+  ),
+  "border": (
+    "base": color("shade", "dark"),
+    "bold": color("shade", "dim"),
+    "highlight": color("shade", "dark"),
+  ),
+);
+
+$dark: (
+  "bg": (
+    "base": color("shade", "dark"),
+    "highlight": color("shade", "light-bright"),
+  ),
+  "color": (
+    "base": color("shade", "gray-bright"),
+    "bold": color("shade", "light-bright"),
+    "highlight": color("core", "primary"),
+  ),
+  "border": (
+    "base": color("shade", "charcoal"),
+    "bold": color("shade", "gray-bright"),
+    "highlight": color("core", "primary"),
+  ),
+);
+
+$active-theme: $light;

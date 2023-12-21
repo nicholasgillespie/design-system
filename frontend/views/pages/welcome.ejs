@@ -1,0 +1,224 @@
+
+        <article>
+          <header class="u-flow">
+            <h1>Wel&shy;come</h1>
+              <p class="[ c-box ][ u-color-bold u-border-highlight ]" data-box="invert">
+                This design system serves as a support for maintaining design coherence, providing CSS&nbsp;struc&shy;ture, design tokens, typography guidelines, spacing rules, and a comprehensive component library.
+              </p>
+          </header>
+        </article>
+      </div>
+      
+      <article class="[ b-quick-start ][ u-flow ]">
+        <div class="u-wrapper">
+          <h2 class="u-mbs-size-4">Quick Start</h2>
+        </div>
+        <div class="[ c-stack ][ u-wrapper ]" data-wrapper="large">
+          <%
+          const items = [
+          { href: "/colors", title: "Colors", description: "Guide on palette, light and dark themes for adaptable, consistent color schemes." },
+          { href: "/typography", title: "Typo&shy;graphy", description: "Guide on dynamic font sizes and font families for adaptable, consistent text display." },
+          { href: "/spacing", title: "Spacing", description: "Guide on dynamic, fluid spacing sizes derived from font sizes for consistent layout." },
+          { href: "/compositions", title: "Compo&shy;sitions", description: "Guide on creating flexible, reusable layouts with versatile compositions." },
+          { href: "/utilities", title: "Utilities", description: "Guide on quick, inline style adjustments with utility classes, minimizing extra CSS." },
+          { href: "https://github.com/nicholasgillespie/ng-design-system", title: "GitHub Repo", description: "Link to the Design System project repository on GitHub." }
+          ];
+          %>
+          <ul role="list" class="c-grid-ram">
+            <% items.forEach(function(item) { %>
+              <li class="c-stack">
+                <a href="<%= item.href %>" class="[ c-box ][ u-flow ]">
+                  <h3 class="u-size-2"><%- item.title %></h3>
+                  <p><span class="u-color-"><%= item.description %></span></p>
+                </a>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+      </article>
+
+      <div class="[ c-stack ][ u-wrapper u-region ]">
+        <article class="u-flow u-mbs-size-3">
+          <h3>Overview of the Design System</h3>
+          <p>
+            At the core of this design system is <a href="https://cube.fyi/" target="_blank" rel="noopener noreferrer" aria-label="Learn more about CUBE CSS">CUBE CSS</a>, a methodology that prioritizes simplicity and pragmatism. In contrast to traditional practices, CSS is strategically declared globally, fostering simplicity without relying on intricate BEM components.
+          </p>
+          <p>
+            This system leverages SCSS and utilizes <a href="https://piccalil.li/tutorial/what-are-design-tokens/" target="_blank" rel="noopener noreferrer" aria-label="Learn more about design tokens">design tokens</a> to define key aspects of the design language, including colors, fonts, spacing, and text sizes. These design tokens are defined in dedicated files. Both CSS variables and utility classes are dynamically generated from these tokens using SCSS functions, ensuring a consistent and adaptable visual foundation for the entire system.
+          </p>
+          <p>
+            The resulting tokens are then inserted into the root, ensuring seamless integration within the system's architecture.
+          </p>
+          <p>
+            Learn more about this process in the <a href="#design-system-process" aria-label="Navigate to the section about generating tokens, CSS variables, utility classes, and helper functions" rel="noopener noreferrer">Generating Tokens, CSS Variables, Utility Classes, & Helper Functions</a> section.
+          </p>
+        </article>
+
+        <article class="u-flow u-mbs-size-3">
+          <h3>SCSS folder structure</h3>
+          <p>The structure is as follows:</p>
+          <div class="[ b-scss-structure ][ c-box ][ u-horizontal-scroll ]">
+            <%
+            const directories = [
+              { level: "[ b-level-1 ][ u-color-bold ]", name: "scss", description: "Root directory for SCSS files" },
+              { level: "[ b-level-2 ][ u-color-bold ]", name: "styles", description: "Contains style types" },
+              { level: "b-level-3", name: "├─ globals", description: "Global styles for the project" },
+              { level: "b-level-3", name: "├─ compositions", description: "Styles for layout and positioning" },
+              { level: "b-level-3", name: "├─ utilities", description: "Single-purpose utility classes" },
+              { level: "b-level-3", name: "├─ pages", description: "Styles specific to pages" },
+              { level: "b-level-3", name: "├─ blocks", description: "Styles for components or 'blocks'" },
+              { level: "b-level-3", name: "└─ vendor", description: "Styles from third-party libraries" },
+              { level: "[ b-level-2 ][ u-color-bold ]", name: "tokens", description: "Contains tokens" },
+              { level: "[ b-level-2 ][ u-color-bold ]", name: "tools", description: "Contains tools" },
+            ];
+            const lastDirectories = [
+              { level: "b-level-3", name: "├─ custom-variables", description: "Generates project-specific CSS variables" },
+              { level: "b-level-3", name: "├─ functions", description: "Contains functions for retrieving styles" },
+              { level: "b-level-3", name: "├─ mixins", description: "Contains SCSS mixins" },
+              { level: "b-level-3", name: "└─ utility-classes", description: "Generates utility classes for HTML" },
+            ];
+            %>
+            <table>
+              <caption class="u-sr-only">Directory Structure</caption>
+              <thead>
+                <tr>
+                  <th>Directory</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% directories.forEach(function(dir) { %>
+                  <tr>
+                    <td class="<%= dir.level %>"><%= dir.name %></td>
+                    <td class="<%= dir.level.includes('b-level-1') || dir.level.includes('b-level-2') ? 'u-color-bold' : '' %>"><%= dir.description %></td>
+                  </tr>
+                <% }); %>
+                <% lastDirectories.forEach(function(dir) { %>
+                  <tr>
+                    <td class="<%= dir.level %>" data-level="last"><%= dir.name %></td>
+                    <td><%= dir.description %></td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="[ b-design-system-process ][ u-flow ]">
+          <h2 id="design-system-process">Introduction to the Design System Process</h2>
+          <p>
+            At the heart of this design system lies a methodical and efficient process that leverages <b>SCSS</b> and <b>design tokens</b> to manage key aspects of the design language.
+          </p>
+          <p>
+            This involves defining <b>tokens</b>, creating <b>CSS variables</b>, <b>utility classes</b>, and <b>helper functions</b>, demonstrating the system's commitment to simplicity and pragmatism.
+          </p>
+          <p>
+            As an example of this process in action, take a look at <a href="#example" aria-label="Navigate to the section about managing font families">how are managed font families within the system</a>.
+          </p>
+          <%
+          const steps = [
+            {
+              title: "Defining the Token",
+              id: "example",
+              description: "The journey begins in the <b>tokens folder</b>, where <b>font-family</b> values are defined in a file named <b>_t-font-family.scss</b>. These values are stored in a map named <b>$font-family</b>, a simple yet powerful construct that holds the key-value pairs representing the various font categories and their corresponding font family.",
+              code:
+`$font-family: (
+  "base": (
+    "arial",
+    "roboto",
+    "sans-serif",
+  ),
+  "brand": (
+    "Times New Roman",
+    "Baskerville",
+    "serif",
+  ),
+  "code": (
+    "Monaco",
+    "Consolas",
+    "monospace",
+  ),
+);`
+            },
+            {
+              title: "Generating CSS Variables from Token",
+              description: "The next step takes us to the <b>custom-variables folder</b>, where a function named <b>set-font-family()</b> is born. This function, residing in the <b>_set-font-family.scss</b> file, iterates over the <b>$font-family</b> map and creates a new map named <b>$font-family-variables</b>. Each key in this new map is a <b>CSS variable</b> name, and each value is a font stack from the <b>$font-family</b> map.",
+              code:
+`@function set-font-family() {
+  $font-family-variables: ();
+  @each $key, $value in $font-family {
+    $font-family-variables: map-merge(
+      $font-family-variables,
+      (--font-family-#{$key}: #{$value})
+    );
+  }
+  @return $font-family-variables;
+};`
+            },
+            {
+              title: "Inserting CSS Variables to the Root",
+              description: "The <b>set-font-family()</b> function then finds its home in the <b>:root</b> rule in the <b>_g-root.scss</b> file located in the <b>globals folder</b>. This integration is achieved using an <b>@each</b> loop that iterates over the map returned by the function, creating a <b>CSS custom property</b> for each key-value pair in the map.",
+              code:
+`@use "../../tools/custom-variables/" as *;
+
+:root {
+  @each $key, $value in set-font-family() {
+    #{$key}: $value;
+  }
+}`
+            },
+            {
+              title: "Creating Utility Classes",
+              description: "Once the <b>CSS variables</b> are set in the root, the journey continues to the <b>utility-classes folder</b>. Here, in the <b>_gen-font-family.scss</b> file, <b>utility classes</b> are created that allow the font family to be applied in the HTML. Each class name is prefixed with <b>u-font-family-</b> followed by the font category name, and the <b>font-family</b> property is set to the corresponding <b>CSS variable</b>.",
+              code:
+`@use "../../tokens/t-font-family" as *;
+
+@each $key, $value in $font-family {
+  .u-font-family-#{$key} {
+    font-family: var(--font-family-#{$key});
+  }
+}`
+            },
+            {
+              title: "Creating get-value() Function",
+              description: "The final destination is the <b>functions folder</b>, where a function named <b>get-font-family()</b> is created in the <b>_get-font-family.scss</b> file. This function takes a key as an argument and returns the corresponding font family. If the key is not provided or is not found in the <b>$font-family</b> map, an error message is displayed.",
+              code:
+`@use "../../tokens/t-font-family" as *;
+
+@function get-font-family($key: null) {
+  @if $key == null or not map-has-key($font-family, $key) {
+    @error "Invalid key '#{$key}' provided.
+    Available fonts are: #{map-keys($font-family)}.
+    The key should match one of the available fonts.";
+  }
+
+  @return var(--font-family-#{$key});
+}`
+            },
+          ];
+          %>
+          <ol role="list" class="c-stack">
+            <% steps.forEach(function(step) { %>
+              <li class="u-flow">
+                <div class="c-cluster">
+                  <h3 id="<%= step.id %>"><%= step.title %></h3>
+                </div>
+                <p>
+                  <%- step.description %>
+                </p>
+                <pre class="[ c-box ][ u-horizontal-scroll ]"><code class="u-size--1"><%= step.code %></code></pre>
+              </li>
+            <% }); %>
+          </ol>
+          <h3>Conclusion</h3>
+          <p>
+            In conclusion, this <b>design system</b>, with its use of <b>tokens</b>, <b>CSS variables</b>, <b>utility classes</b>, and <b>helper functions</b>, significantly enhances the consistency, maintainability, and structure of the project.
+          </p>
+          <p>
+            The <b>custom variables</b> in the root, such as for fluid typography, spacing, colors, and font-families, provide a centralized and standardized definition of key design attributes. The <b>get-value()</b> functions ensure adherence to the design by retrieving the correct styles, while also providing informative feedback to developers. The <b>utility classes</b> offer a convenient way to apply these styles directly in the HTML.
+          </p>
+          <p>
+            This systematic approach simplifies the management of styles across the project, making it a pragmatic solution for efficient style declaration.
+          </p>
+        </article>
+

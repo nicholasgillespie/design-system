@@ -1,0 +1,21 @@
+/// STYLES INDEX
+///
+/// This file acts as a central point for importing all SCSS styles used in the project.
+/// It brings together global styles, compositions, utilities, blocks, and vendor-specific styles.
+/// Each category is organized in its own directory, enhancing the project's maintainability.
+///
+/// The following imports are included:
+/// - Global: Styles that are universally applied throughout the project.
+/// - Compositions: Styles that define common layout patterns.
+/// - Utilities: Helper styles that address frequent CSS patterns.
+/// - Pages: Styles specific to different pages of the application.
+/// - Blocks: Styles dedicated to specific components or "blocks".
+/// - Vendor: Styles that are specific to third-party libraries or external code.
+
+@use "global";
+@use "compositions";
+@use "utilities";
+@use "pages";
+@use "blocks";
+// @use "vendor";
+@use "../tools/utility-classes/" as *;

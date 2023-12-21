@@ -1,0 +1,63 @@
+/// FONT SIZE TOKEN
+///
+/// This file defines the `$font-size` map, with values derived from `$base-sizes`.
+/// The map is populated using `calc-step` for each size, based on $_typeScaleMin and $_typeScaleMax.
+/// These font sizes affect the typography throughout the application.
+/// Use the `get-size` function to retrieve a font size from the map.
+///
+/// Example usage: `get-size("base")`
+///
+@use "./core-values" as *;
+@use "../tools/functions/helpers/process-calc-step" as *;
+
+$f-0-min: map-get($base-sizes, "min");
+$f-0-max: map-get($base-sizes, "max");
+
+$_scale: (
+  "minor second": 1.067,
+  "major second": 1.125,
+  "minor third": 1.2,
+  "major third": 1.25,
+  "perfect fourth": 1.333,
+  "augmented fourth": 1.414,
+  "perfect fifth": 1.5,
+  "golden ratio": 1.618,
+  "major sixth": 1.667,
+  "minor seventh": 1.778,
+  "major seventh": 1.875,
+  "octave": 2,
+);
+
+$_typeScaleMin: map-get($_scale, "minor third");
+$_typeScaleMax: map-get($_scale, "augmented fourth");
+
+$_f--1-min: calc($f-0-min / $_typeScaleMin);
+$_f--1-max: calc($f-0-max / $_typeScaleMax);
+$_f--2-min: calc($_f--1-min / $_typeScaleMin);
+$_f--2-max: calc($_f--1-max / $_typeScaleMax);
+$_f-1-min: $f-0-min * $_typeScaleMin;
+$_f-1-max: $f-0-max * $_typeScaleMax;
+$_f-2-min: $_f-1-min * $_typeScaleMin;
+$_f-2-max: $_f-1-max * $_typeScaleMax;
+$_f-3-min: $_f-2-min * $_typeScaleMin;
+$_f-3-max: $_f-2-max * $_typeScaleMax;
+$_f-4-min: $_f-3-min * $_typeScaleMin;
+$_f-4-max: $_f-3-max * $_typeScaleMax;
+$_f-5-min: $_f-4-min * $_typeScaleMin;
+$_f-5-max: $_f-4-max * $_typeScaleMax;
+
+$font-size: (
+  -2: calc-step($_f--2-min, $_f--2-max),
+  -1: calc-step($_f--1-min, $_f--1-max),
+  "base": calc-step($f-0-min, $f-0-max),
+  1: calc-step($_f-1-min, $_f-1-max),
+  2: calc-step($_f-2-min, $_f-2-max),
+  3: calc-step($_f-3-min, $_f-3-max),
+  4: calc-step($_f-4-min, $_f-4-max),
+  5: calc-step($_f-5-min, $_f-5-max)
+);
+
+// DEBUG
+// @each $key, $value in $font-size {
+//   @debug "Key: #{$key}, Value: #{$value}";
+// }

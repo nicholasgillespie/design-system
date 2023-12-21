@@ -1,0 +1,14 @@
+/// FUNCTIONS INDEX
+///
+/// This file serves as a central hub for importing all SCSS functions.
+/// Each function has its own dedicated file and is imported here for ease of use and maintainability.
+
+@forward "get-border";
+@forward "get-color-palette";
+@forward "get-color-theme";
+@forward "get-font-family";
+@forward "get-font-weight";
+@forward "get-letter-spacing";
+@forward "get-line-height";
+@forward "get-size";
+@forward "get-space";

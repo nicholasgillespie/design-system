@@ -1,0 +1,36 @@
+/// C-STACK
+///
+/// A layout component that arranges its children in a single column, with customizable spacing and alignment.
+/// It uses CSS Flexbox to achieve this layout.
+/// More info: https://every-layout.dev/layouts/stack/
+///
+/// CUSTOM PROPERTIES AND CONFIGURATION
+/// --stack-justify-content (flex-start): Defines the alignment along the main axis.
+/// --stack-align-items (flex-start): Defines the alignment along the cross axis.
+/// --stack-space (1rem): Defines the space between items.
+///
+/// EXCEPTIONS
+/// [data-stack='space-between']: Distributes items evenly along the main axis by setting --stack-justify-content to space-between.
+///
+/// The .c-stack class uses these custom properties to set its flexbox properties and spacing. If a custom property is not specified, it falls back to a default value.
+
+.c-stack {
+  --_stack-space: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: var(--stack-justify-content, flex-start);
+  align-items: var(--stack-align-items, flex-start);
+
+  & > * {
+    margin-block: 0;
+  }
+
+  & > * + * {
+    margin-block-start: var(--stack-space, var(--_stack-space));
+  }
+
+  &[data-stack="space-between"] {
+    --stack-justify-content: space-between;
+  }
+}

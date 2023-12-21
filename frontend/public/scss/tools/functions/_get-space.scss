@@ -1,0 +1,23 @@
+/// GET-SPACE FUNCTION
+///
+/// This function retrieves a space size from a map of space-sizes. The keys should be in the format '#xx', '#x' or 'x', where '#' is a placeholder for a number and 'x' is a t-shirt size value.
+/// It first checks if a valid key is provided. If not, it throws an error with the available space-sizes.
+/// It then checks if the provided key exists in the map. If not, it throws an error with the available options.
+/// If the key is valid, it retrieves the space associated with the key from the map and returns it.
+///
+/// @param {string} $key - The key corresponding to a space category
+///
+/// @return {list} - The space from the map, or an error if the key is not found or invalid
+///
+@use "../../tokens/t-space-size" as *;
+
+@function get-space($key: null) {
+  $key: #{$key};
+  @if $key == null or not map-has-key($space-size, $key) {
+    @warn "Invalid key '#{$key}' provided. Available space sizes are: #{map-keys($space-size)}. The key should match one of the available sizes.";
+  }
+
+  @return var(--space-#{$key});
+  // Uncomment the following line to return the font directly from the map instead of using CSS variables
+  // @return map-get($space-size, $key);
+}

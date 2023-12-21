@@ -1,0 +1,10 @@
+/// CUSTOM VARIABLES INDEX
+///
+/// This file serves as a central hub for importing all SCSS code that generates custom CSS variables.
+/// These variables, derived from design tokens, provide a consistent way to apply styles such as colors, fonts, and sizes across the UI.
+
+@forward "set-color-palette";
+@forward "set-color-theme";
+@forward "set-font-family";
+@forward "set-font-size";
+@forward "set-space-size";

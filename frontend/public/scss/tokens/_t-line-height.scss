@@ -1,0 +1,13 @@
+/// LINE HEIGHT TOKEN
+///
+/// This file defines a map of line heights for different text styles.
+/// Use the `get-line-height` function to retrieve a specific line height from the map.
+///
+/// Example usage: `get-line-height("base")`
+
+$line-height: (
+  "extra-tight": 1,
+  "tight": 1.25,
+  "base": 1.5,
+  "wide": 2,
+);

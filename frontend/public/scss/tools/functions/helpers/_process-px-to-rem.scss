@@ -1,0 +1,25 @@
+/// PX-TO-REM FUNCTION
+///
+/// This function converts a pixel value to rem units.
+/// First, it rounds the pixel value to two decimal places.
+/// It then uses the `div` function from the `sass:math` module to divide the rounded pixel value by 16 (the default root font-size in pixels).
+/// The result is then multiplied by `1rem` to convert it to rem units.
+/// After the conversion, the rem value is rounded to four decimal places.
+/// Finally, it returns the rounded rem value.
+///
+/// @param {number} $px - The pixel value to be converted
+///
+/// @return {number} - The input pixel value converted to rem units, rounded to four decimal places
+///
+@use "sass:math";
+
+@function px-to-rem($px) {
+  $px: math.div(round($px * 100), 100); // Round to two decimal places
+
+  $rem: math.div($px, 16) * 1; // Convert to rem units
+  $rem: math.div(
+    round($rem * 10000),
+    10000
+  ); // Round to four decimal places after conversion to rem
+  @return $rem;
+}

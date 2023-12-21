@@ -1,0 +1,21 @@
+/// GEN-SIZE FILE
+///
+/// This file generates CSS utility classes for each step defined in the `$font-size` map.
+/// Each class applies the corresponding font size to an element.
+/// The font size applied is determined by the `$font-size` map.
+///
+@use "../../tokens/t-font-size" as *;
+@use "../../tools/functions/get-line-height" as *;
+
+@each $key, $value in $font-size {
+  $numericKey: $key;
+  @if $key == "base" {
+    $numericKey: 0; // Assign a numerical value to "base"
+  }
+  .u-size-#{$key} {
+    font-size: var(--size-#{$key});
+    @if $numericKey > 1 {
+      line-height: get-line-height("extra-tight");
+    }
+  }
+}

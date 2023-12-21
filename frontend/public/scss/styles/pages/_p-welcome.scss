@@ -1,0 +1,101 @@
+@use "../../tools/functions/" as *;
+
+.p-welcome {
+  .u-region:first-of-type {
+    --region-block-end: 0;
+  }
+
+  .u-region:nth-child(3) {
+    --region-block-start: 0;
+  }
+}
+
+.b-quick-start {
+  .c-grid-ram {
+    --grid-ram-min-item-size: 18rem;
+  }
+
+  a {
+    block-size: 100%;
+
+    p {
+      display: inline-block;
+      text-align: start;
+      font-weight: get-font-weight("base");
+      color: get-theme("color", "base");
+      text-wrap: balance;
+    }
+  }
+
+  .c-box {
+    &:hover,
+    &:focus {
+      --box-border-color: #{get-theme("border", "highlight")};
+    }
+  }
+}
+
+.b-scss-structure {
+  padding-inline: calc(var(--_box-padding) + var(--_box-border-width));
+
+  tr {
+    display: flex;
+
+    > :first-child {
+      flex: 0 0 16rem;
+    }
+    > :last-child {
+      flex: 1;
+    }
+  }
+
+  .b-level {
+    &-2::before {
+      color: get-theme("border", "bold");
+      content: "└─";
+      margin-inline-start: -0.15ch;
+      margin-inline-end: 1ch;
+    }
+
+    &-3 {
+      &::before {
+        content: "│";
+        margin-inline-end: 2.3ch;
+        color: get-theme("border", "bold");
+      }
+      &[data-level="last"]::before {
+        content: "";
+        margin-inline-end: 3.45ch;
+      }
+    }
+  }
+}
+
+.b-design-system-process {
+  --stack-space: #{get-size(3)};
+
+  ol {
+    --flow-space: 0;
+    counter-reset: step;
+
+    li {
+      --flow-space: 1em;
+      list-style: none;
+      margin-block-start: get-size(3);
+
+      .c-cluster {
+        --cluster-flex-wrap: nowrap;
+        --cluster-align-items: baseline;
+        --cluster-gap: none;
+
+        &::before {
+          color: get-theme("color", "highlight");
+          counter-increment: step;
+          content: counter(step);
+          padding-inline-end: 1em;
+          font-weight: get-font-weight("bold");
+        }
+      }
+    }
+  }
+}

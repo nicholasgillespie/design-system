@@ -1,0 +1,58 @@
+/// ROOT FILE
+///
+/// This file defines CSS custom properties for various aspects of the design system, such as spacing, color themes, font sizes, and font families.
+/// These properties are set on the `:root` element.
+/// It also includes support for theme switching based on the `data-theme` attribute on the `body` element.
+/// Uncomment and use additional functionality as needed.
+///
+@use "../../tools/custom-variables/" as *;
+
+:root {
+  // Sets the font size variables
+  @each $key, $value in set-font-size() {
+    #{$key}: $value;
+  }
+
+  // Sets the space size variables
+  @each $key, $value in set-space-size() {
+    #{$key}: $value;
+  }
+
+  --gutter: var(--space-s-m);
+  --measure: 75ch;
+
+  // Sets the font variables
+  @each $key, $value in set-font-family() {
+    #{$key}: $value;
+  }
+
+  // Sets the color variables
+  @each $key, $value in set-color-palette() {
+    #{$key}: $value;
+  }
+
+  // Sets the theme variables for dark mode
+  @media (prefers-color-scheme: dark) {
+    @each $key, $value in set-color-theme(dark) {
+      #{$key}: $value;
+    }
+  }
+  // Sets the theme variables
+  @each $key, $value in set-color-theme(light) {
+    #{$key}: $value;
+  }
+}
+
+// Sets the theme variables for dark mode when the user selects dark mode
+body[data-theme="dark"] {
+  @each $key, $value in set-color-theme(dark) {
+    #{$key}: $value;
+  }
+}
+
+// Sets the theme variables for light mode when the user selects light mode
+body[data-theme="light"] {
+  @each $key, $value in set-color-theme(light) {
+    #{$key}: $value;
+  }
+}

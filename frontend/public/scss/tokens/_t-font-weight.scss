@@ -1,0 +1,11 @@
+/// FONT-WEIGHT TOKEN
+///
+/// This file defines a map of font weights for different text styles.
+/// Use the `get-font-weight` function to retrieve a specific font weight from the map.
+///
+/// Example usage: `get-font-weight("base")`
+
+$font-weight: (
+  "base": 400,
+  "bold": 700,
+);

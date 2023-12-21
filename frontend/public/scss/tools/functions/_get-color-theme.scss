@@ -1,0 +1,26 @@
+/// GET-THEME FUNCTION
+///
+/// This function retrieves a color from the `$active-theme` map from the t-color-theme tokens file.
+/// The category should correspond to a color group, for example 'bg' or 'color', and the key should correspond to a color name within that group, for example 'base', 'bold', or 'brand'.
+/// It first checks if a valid category and key are provided. If not, it throws an error with the available categories and keys.
+/// It then checks if the provided category and key exist in the map. If not, it throws an error with the available options.
+/// If the category and key are valid, it retrieves the color associated with the category and key from the map and returns it as a CSS variable.
+///
+/// @param {string} $category - The category corresponding to a color group
+/// @param {string} $key - The key corresponding to a color name within the category
+///
+/// @return {string} - The CSS variable corresponding to the color from the map, or an error if the category or key is not found or invalid
+///
+@use "../../tokens/t-color-theme" as *;
+
+@function get-theme($category: null, $key: null) {
+  @if $category == null or not map-has-key($active-theme, $category) {
+    @error "Invalid category `#{$category}`. Available categories are: #{map-keys($active-theme)}.";
+  }
+
+  @if $key == null or not map-has-key(map-get($active-theme, $category), $key) {
+    @error "Invalid key `#{$key}` for category `#{$category}`. Available keys are: #{map-keys(map-get($active-theme, $category))}.";
+  }
+
+  @return var(--theme-#{$category}-#{$key});
+}

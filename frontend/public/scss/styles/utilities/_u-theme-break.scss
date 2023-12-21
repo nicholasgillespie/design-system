@@ -1,0 +1,17 @@
+/// THEME BREAK UTILITY
+///
+/// This utility class applies a visual break in the theme by adding a border at the start of the block.
+/// The border style and width are determined by the "base" and "bold" values from the theme.
+/// The border color is determined by the "highlight" value from the theme.
+/// The margin and padding at the start of the block can be customized using the --theme-break-mbs and --theme-break-pbs variables.
+/// This utility is part of a set of CSS utilities designed to make it easier to build consistent, responsive, and beautiful designs.
+///
+@use "../../tools/functions/" as *;
+
+.u-theme-break {
+  display: block;
+  margin-block-start: var(--theme-break-mbs, 0);
+  padding-block-start: var(--theme-break-pbs, 0);
+  border-block-start: get-border-style("base") get-border-width("bold");
+  border-color: get-theme("border", "highlight");
+}

@@ -1,0 +1,20 @@
+/// FLOW UTILITY
+///
+/// This utility class applies a consistent vertical margin between direct child elements of a parent with the .u-flow class.
+/// The margin size is controlled by the --flow-space CSS custom property, with a default value of 1em.
+/// This utility is part of a set of CSS utilities designed to make it easier to build consistent, responsive, and beautiful designs.
+/// More info: https://piccalil.li/quick-tip/flow-utility/
+
+.u-flow > * {
+  & + * {
+    margin-block-start: var(--flow-space, 1em);
+  }
+
+  &[data-flow="none"] {
+    --flow-space: 0;
+  }
+
+  &[data-flow="2em"] {
+    --flow-space: 2em;
+  }
+}

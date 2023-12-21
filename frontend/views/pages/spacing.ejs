@@ -1,0 +1,71 @@
+
+
+        <article class="u-flow">
+          <header class="u-flow">
+            <h1>Spac&shy;ing</h1>
+            <p class="[ c-box ][ u-mbs-l u-color-bold u-border-highlight ]">
+              Spacing sizes in this system dynamically adapt to the viewport size using a fluid scale, ensuring consistent spacing across devices.
+            </p>
+          </header>
+
+          <% const spaces = [
+            { name: '3xs', min: '4.5', max: '5', usageClass: '.u-{FI}{DI}-{SI}' },
+            { name: '2xs', min: '9', max: '10', usageClass: '' },
+            { name: 'xs', min: '13.5', max: '15', usageClass: '' },
+            { name: 's', min: '18', max: '20', usageClass: '' },
+            { name: 'm', min: '27', max: '30', usageClass: '' },
+            { name: 'l', min: '36', max: '40', usageClass: '' },
+            { name: 'xl', min: '54', max: '60', usageClass: '' },
+            { name: '2xl', min: '72', max: '80', usageClass: '' },
+            { name: '3xl', min: '108', max: '120', usageClass: '' },
+          ]; %>
+          <ol role="list" class="u-mbs-size-2">
+            <li class="[ b-spacing-demo ][ c-stack ]">
+              <% spaces.forEach(space => { %>
+                <div class="u-flow">
+                  <p><span class="u-color-bold u-font-weight-bold">Space <%= space.name %></span> <em>(min: <%= space.min %>px / max: <%= space.max %>px)</em></p>
+                  <div class="[ b-demo-block ][ u-p-<%= space.name %> u-bg-highlight ]"></div>
+                </div>
+              <% }) %>
+            </li>
+          </ol>
+
+          <h3>Design Token</h3>
+          <p>The token for the spacing sizes is located here:</p>
+          <a href="https://github.com/nicholasgillespie/ng-design-system/blob/main/frontend/public/scss/tokens/_t-space-size.scss" aria-label="Link to space size token file on GitHub" rel="noopener noreferrer">public/<wbr>scss/<wbr>tokens/<wbr>_t-space-size.scss</a>
+
+          <h3>Usage</h3>
+          <p>In the context of using utility classes for spacings, the utility class is composed of three parts:</p>
+          <ol class="b-spacing-usage">
+            <li>The <b>Function Indicator (FI)</b>, which denotes the function such as "m" for margin or "p" for padding.</li>
+            <li>The <b>Direction Indicator (DI)</b>, which uses logical properties like "b" for block or "i" for inline.</li>
+            <li>The <b>Size Indicator (SI)</b>, which corresponds to the values defined in the spacing token.</li>
+          </ol>
+          <p> These elements (<b>FI</b>, <b>DI</b>, <b>SI</b>) are combined to form a utility class.</p>
+          <p>For instance, <b>.u-mbe-s</b> is a utility class that applies a <b>margin-block-end</b> of size '<b>s</b>'. This approach provides a flexible and consistent way to apply spacing styles across the system.</p>
+          
+          <div class="[ u-horizontal-scroll ][ c-box ]">
+            <table>
+              <caption class="u-sr-only">
+                Usage of utility classes, Sass functions, and CSS variables for spacings.
+              </caption>
+              <thead>
+                <tr>
+                  <th>Sass Function</th>
+                  <th>Utility Class</th>
+                  <th>CSS Variable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% spaces.forEach(space => { %>
+                  <tr>
+                    <td>get-space(<%= space.name %>)</td>
+                    <td><%= space.usageClass %></td>
+                    <td>var(--space-<%= space.name %>)</td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </article>
+

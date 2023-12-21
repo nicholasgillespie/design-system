@@ -1,0 +1,50 @@
+@use "../../tools/functions/" as *;
+
+.p-colors {
+  table {
+    .c-cluster {
+      --cluster-flex-wrap: nowrap;
+      --cluster-gap: #{get-space("2xs")};
+
+      .c-cluster {
+        --cluster-flex-wrap: wrap;
+        --cluster-flex-direction: column;
+        --cluster-align-items: flex-start;
+        --cluster-gap: 0;
+
+        div:last-of-type {
+          font-size: 0.65em;
+        }
+      }
+    }
+
+    .c-box {
+      padding: get-space(xs);
+      --box-border-width: #{get-border-width("base")};
+    }
+  }
+
+  .u-theme-break {
+    min-inline-size: 6ch;
+  }
+}
+
+.b-theme-usage {
+  th:first-child,
+  td:first-child {
+    inline-size: 10%;
+  }
+
+  th:not(:first-child),
+  td:not(:first-child) {
+    inline-size: 30%;
+  }
+
+  .b-theme-backgrounds {
+    .c-box {
+      display: inline-block;
+      margin-block: 0.2ch;
+      vertical-align: top;
+    }
+  }
+}

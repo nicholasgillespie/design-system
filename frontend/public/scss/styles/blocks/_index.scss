@@ -1,0 +1,8 @@
+/// BLOCKS INDEX
+///
+/// This file serves as a central hub for importing all block-level styles following the CUBE CSS methodology.
+/// Each block has its own dedicated file which is imported here. This structure enhances ease of use and maintainability.
+
+// @forward "b-button";
+@forward "b-site-header";
+@forward "b-back-to-top";

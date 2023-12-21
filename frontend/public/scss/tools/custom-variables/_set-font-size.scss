@@ -1,0 +1,20 @@
+/// SET-FONT-SIZE-VARIABLES FUNCTION
+///
+/// This function generates a map of CSS variables for each font size in the `$font-size` map.
+/// It initializes an empty map to store the CSS variables.
+/// It then iterates over the font sizes in the map. For each font size, it adds a CSS variable to the map. The variable name is in the format `--{key}`, and the value is the calculated value.
+///
+/// @return {map} - The map of CSS variables in the format (--{key}: calculated value)
+///
+@use "../../tokens/t-font-size" as *;
+
+@function set-font-size() {
+  $font-size-variables: ();
+  @each $key, $value in $font-size {
+    $font-size-variables: map-merge(
+      $font-size-variables,
+      (--size-#{$key}: #{$value})
+    );
+  }
+  @return $font-size-variables;
+}

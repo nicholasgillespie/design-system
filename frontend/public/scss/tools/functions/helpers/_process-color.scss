@@ -1,0 +1,24 @@
+/// COLOR FUNCTION
+///
+/// This function validates the existence of a specific color category and key in the `$color-palette` map.
+/// It takes two parameters: `$category` and `$key`.
+/// It first checks if the provided `$category` exists as a key in the `$color-palette` map. If it doesn't, it throws an error message indicating that the provided category is invalid and lists the available categories.
+/// If the `$category` is valid, it then checks if the provided `$key` exists as a key in the sub-map of `$color-palette` associated with the `$category`. If it doesn't, it throws an error message indicating that the provided key is invalid for the given category and lists the available keys for that category.
+/// If both the `$category` and `$key` are valid, it returns a list containing the `$category` and `$key`.
+///
+/// @param {string} $category - The category corresponding to a color group
+/// @param {string} $key - The key corresponding to a color name within the category
+///
+/// @return {list} - The validated category and key
+///
+@use "../../../tokens/t-color-palette" as *;
+
+@function color($category, $key) {
+  @if not map-has-key($color-palette, $category) {
+    @error "Invalid category `#{$category}`. Available categories are: #{map-keys($color-palette)}.";
+  }
+  @if not map-has-key(map-get($color-palette, $category), $key) {
+    @error "Invalid key `#{$key}` for category `#{$category}`. Available keys are: #{map-keys(map-get($color-palette, $category))}.";
+  }
+  @return $category, $key;
+}

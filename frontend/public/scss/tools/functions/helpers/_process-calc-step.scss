@@ -1,0 +1,54 @@
+/// CALCSTEP FUNCTION
+///
+/// This function calculates the font size step for responsive typography.
+/// It first checks if $fontSizeMin is greater than $fontSizeMax, and if so, swaps them and sets $reverse to true.
+/// It then converts $fontSizeMin, $fontSizeMax, $viewportMin, and $viewportMax from pixels to rem units using the px-to-rem function.
+/// It calculates the slope by dividing the difference in font sizes by the difference in viewport sizes.
+/// It calculates the intersection by subtracting the product of $viewportMin and $slope from $fontSizeMin.
+/// If $reverse is true, it adjusts the intersection calculation by using $viewportMax instead of $viewportMin and makes the slope negative.
+/// Finally, it returns a clamp function that clamps the font size between $fontSizeMin and $fontSizeMax, with a scaling factor based on the viewport width.
+///
+/// @param {number} $fontSizeMin - The minimum font size in pixels
+/// @param {number} $fontSizeMax - The maximum font size in pixels
+///
+/// @return {string} - A clamp function that scales the font size between $fontSizeMin and $fontSizeMax based on the viewport width
+///
+@use "../../../tokens/core-values" as *;
+@use "./process-px-to-rem" as *;
+@use "./process-decimal-round" as *;
+@use "sass:math";
+
+$viewportMin: map-get($viewport-sizes, "min");
+$viewportMax: map-get($viewport-sizes, "max");
+
+@function calc-step($fontSizeMin, $fontSizeMax) {
+  $reverse: false;
+
+  // Swap $fontSizeMin and $fontSizeMax if $fontSizeMin is greater than $fontSizeMax
+  @if $fontSizeMin > $fontSizeMax {
+    $temp: $fontSizeMin;
+    $fontSizeMin: $fontSizeMax;
+    $fontSizeMax: $temp;
+    $reverse: true;
+  }
+
+  $fontSizeMin: px-to-rem($fontSizeMin);
+  $fontSizeMax: px-to-rem($fontSizeMax);
+  $viewportMin: px-to-rem($viewportMin);
+  $viewportMax: px-to-rem($viewportMax);
+
+  $slope: math.div($fontSizeMax - $fontSizeMin, $viewportMax - $viewportMin);
+  $intersection: -1 * $viewportMin * $slope + $fontSizeMin;
+
+  // Adjust the intersection calculation if $fontSizeMin was greater than $fontSizeMax
+  @if $reverse {
+    $intersection: math.div((($viewportMax * $slope) + $fontSizeMin), 1);
+    $slope: $slope * -1;
+  }
+
+  @return clamp(
+    #{$fontSizeMin}rem,
+    decimal-round($intersection, 4) * 1rem + decimal-round($slope, 6) * 100vw,
+    #{$fontSizeMax}rem
+  );
+}

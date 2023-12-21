@@ -1,0 +1,225 @@
+<article class="u-flow">
+  <header class="u-flow">
+    <h1>Colors</h1>
+    <div class="c-cluster" data-flow="2em">
+      <a href="#palette">Color Palette</a>
+      <a href="#theme-usage">Theme Usage</a>
+    </div>
+  </header>
+  <h2 id="palette">Palette</h2>
+  <% const colorsUsage = [
+    { name: 'Primary', code: '#7553c6', key: 'core-primary' },
+  ]; %>
+  <p>
+    The color palette defines the colors used across the designs, ensuring consistency and facilitating system-wide color updates. 
+  </p>
+
+  <h3>Core</h3>
+  <div class="[ u-horizontal-scroll ][ c-box ]">
+    <table>
+      <caption class="u-sr-only">
+        Usage of utility classes, Sass functions, and CSS variables for core colors.
+      </caption>
+      <thead>
+        <tr>
+          <th>Name & Codes</th>
+          <th>Sass Function</th>
+          <th>Color Utility Class</th>
+          <th>BG Utility Class</th>
+          <th>CSS Variable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% colorsUsage.forEach(color => { %>
+          <tr>
+            <td>
+              <div class="c-cluster">
+                <div class="[ c-box ][ u-bg-<%= color.key %> ]"></div>
+                <div class="c-cluster">
+                  <div><%= color.name %></div>
+                  <div><%= color.code %></div>
+                </div>
+              </div>
+            </td>
+            <td>get-color("<%= color.key.split('-').join('", "') %>")</td>
+            <td>.u-color-<%= color.key %></td>
+            <td>.u-bg-<%= color.key %></td>
+            <td>var(--color-<%= color.key %>)</td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  
+  <h3>Shades</h3>
+  <% const shadesUsage = [
+    { name: 'Dark', code: '#000000', key: 'shade-dark' },
+    { name: 'Dim', code: '#242424', key: 'shade-dim' },
+    { name: 'Charcoal', code: '#494949', key: 'shade-charcoal' },
+    { name: 'Gray', code: '#6d6d6d', key: 'shade-gray' },
+    { name: 'Gray Bright', code: '#929292', key: 'shade-gray-bright' },
+    { name: 'Gray Glare', code: '#b6b6b6', key: 'shade-gray-glare' },
+    { name: 'Light', code: '#dbdbdb', key: 'shade-light' },
+    { name: 'Light Bright', code: '#ffffff', key: 'shade-light-bright' },
+  ]; %>  
+  <div class="[ u-horizontal-scroll ][ c-box ]">
+    <table>
+      <caption class="u-sr-only">
+        Usage of utility classes, Sass functions, and CSS variables for core colors.
+      </caption>
+      <thead>
+        <tr>
+          <th>Name & Codes</th>
+          <th>Sass Function</th>
+          <th>Color Utility Class</th>
+          <th>BG Utility Class</th>
+          <th>CSS Variable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% shadesUsage.forEach(shade => { %>
+          <tr>
+            <td>
+              <div class="c-cluster">
+                <div class="[ c-box ][ u-bg-<%= shade.key %> ]"></div>
+                <div class="c-cluster">
+                  <div><%= shade.name %></div>
+                  <div><%= shade.code %></div>
+                </div>
+              </div>
+            </td>
+            <td>get-color("<%= shade.key.split('-').join('", "') %>")</td>
+            <td>.u-color-<%= shade.key %></td>
+            <td>.u-bg-<%= shade.key %></td>
+            <td>var(--color-<%= shade.key %>)</td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  
+  <h3>Palette Token</h3>
+  <p>The token for the color palette is located here:</p>
+  <a href="https://github.com/nicholasgillespie/ng-design-system/blob/main/frontend/public/scss/tokens/_t-color-palette.scss" aria-label="Link to color palette token file on GitHub" rel="noopener noreferrer">public/<wbr>scss/<wbr>tokens/<wbr>_t-color-palette.scss</a>
+</article>
+
+<div class="u-theme-break" style="--theme-break-mbs: var(--gutter)"></div>
+
+<article class="[ b-theme-usage ][ u-flow u-mbs-size-4 ]">
+  <h2 id="theme-usage">Theme</h2>
+  <p class="u-color-bold">
+    The theme usage in this design system provides a flexible way to manage color schemes, such as light and dark modes. 
+  </p>
+  <p>
+    By linking color values to themes, a theme change automatically updates all site colors, ensuring consistency and simplifying design.
+  </p>
+  <p>
+    <span class="u-need-js">Observe the theme variations. Switch to 
+      <button class="[ js-theme-toggle ][ b-button ][ u-link ]">Light Mode</button>
+    </span>
+  </p>
+  <h3>Backgrounds</h3>
+  <% const themeBackgrounds = [
+    { key: 'bg-base' },
+    { key: 'bg-highlight' },
+  ]; %> 
+  <div class="[ b-theme-backgrounds ][ c-box ][ u-horizontal-scroll ]">
+    <table>
+      <caption class="u-sr-only">
+        Usage of utility classes, Sass functions, and CSS variables for core colors.
+      </caption>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Sass Function</th>
+          <th>Utility Class</th>
+          <th>CSS Variable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% themeBackgrounds.forEach(theme => { %>
+          <tr>
+            <td>
+              <div class="[ c-box ][ u-<%= theme.key %> ]"></div>
+            </td>
+            <td>get-theme("<%= theme.key.split('-').join('", "') %>")</td>
+            <td>.u-<%= theme.key %></td>
+            <td>var(--theme-<%= theme.key %>)</td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  
+  <h3>Colors</h3>
+  <% const themeColors = [
+    { key: 'color-base' },
+    { key: 'color-bold' },
+    { key: 'color-highlight' },
+  ]; %> 
+  <div class="[ u-horizontal-scroll ][ c-box ]">
+    <table>
+      <caption class="u-sr-only">
+        Usage of utility classes, Sass functions, and CSS variables for core colors.
+      </caption>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Sass Function</th>
+          <th>Utility Class</th>
+          <th>CSS Variable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% themeColors.forEach(theme => { %>
+          <tr>
+            <td>
+              <div class="u-<%= theme.key %>">Sample</div>
+            </td>
+            <td>get-theme("<%= theme.key.split('-').join('", "') %>")</td>
+            <td>.u-<%= theme.key %></td>
+            <td>var(--theme-<%= theme.key %>)</td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  
+  <h3>Borders</h3>
+  <% const themeBorders = [
+    { key: 'border-base' },
+    { key: 'border-bold' },
+    { key: 'border-highlight' },
+  ]; %> 
+  <div class="[ u-horizontal-scroll ][ c-box ]">
+    <table>
+      <caption class="u-sr-only">
+        Usage of utility classes, Sass functions, and CSS variables for core colors.
+      </caption>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Sass Function</th>
+          <th>Utility Class</th>
+          <th>CSS Variable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% themeBorders.forEach(theme => { %>
+          <tr>
+            <td>
+              <div class="u-theme-break u-<%= theme.key %>"></div>
+            </td>
+            <td>get-theme("<%= theme.key.split('-').join('", "') %>")</td>
+            <td>.u-<%= theme.key %></td>
+            <td>var(--theme-<%= theme.key %>)</td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Theme Token</h3>
+  <p>The token for the themes is located here:</p>
+  <a href="https://github.com/nicholasgillespie/ng-design-system/blob/main/frontend/public/scss/tokens/_t-color-theme.scss" aria-label="Link to theme color token file on GitHub" rel="noopener noreferrer">public/<wbr>scss/<wbr>tokens/<wbr>_t-color-theme.scss</a>
+</article>

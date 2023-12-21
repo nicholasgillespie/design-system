@@ -1,0 +1,23 @@
+@use "../../tools/functions/" as *;
+
+.b-back-to-top {
+  padding: calc(get-space(3xs) + get-size("base"));
+
+  &:before {
+    --border: #{get-border-width("bold")} #{get-border-style("base")} #{get-theme(
+        "color",
+        "bold"
+      )};
+    content: "";
+    position: absolute;
+    inset: 30%;
+    transform: translateY(20%) rotate(-45deg);
+    border-block-start: var(--border);
+    border-inline-end: var(--border);
+  }
+
+  &:is(:hover, :focus):before {
+    border-color: get-theme("bg", "highlight");
+    border-color: var(--color-bg);
+  }
+}

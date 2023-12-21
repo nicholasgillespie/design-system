@@ -1,0 +1,22 @@
+@use "../../tools/functions/" as *;
+
+.b-site-header {
+  --box-border-style: none;
+  --stack-space: 1em;
+  outline: get-border-width("bold") get-border-style("base")
+    get-theme("border", "highlight");
+  display: flex;
+  position: relative;
+  padding-block: 0;
+
+  & .b-sticky {
+    position: sticky;
+    top: 0;
+    max-block-size: calc(100vh - calc(2 * var(--gutter)));
+    padding-block: var(--gutter);
+  }
+
+  .b-logo-container :first-child {
+    --stack-space: 0;
+  }
+}

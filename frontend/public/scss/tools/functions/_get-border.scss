@@ -1,0 +1,36 @@
+/// BORDER ATTRIBUTE RETRIEVAL FUNCTIONS
+///
+/// These functions retrieve border attributes (style, width, radius) from their respective maps. The key should correspond to a category, for example 'base' or 'bold' for width, 'base' for style, and 'base' or 'rounded' for radius.
+/// Each function first checks if a valid key is provided. If not, it throws an error with the available keys for that attribute.
+/// It then checks if the provided key exists in the map. If not, it throws an error with the available options.
+/// If the key is valid, it retrieves the border attribute associated with the key from the map and returns it.
+///
+/// @param {string} $key - The key corresponding to a category for the border attribute
+///
+/// @return {number|string} - The border attribute from the map, or an error if the key is not found or invalid
+///
+@use "../../tokens/t-border" as *;
+
+@function get-border-style($key: null) {
+  @if $key == null or not map-has-key($border-style, $key) {
+    @error "Invalid key '#{$key}' provided. Available styles are: #{map-keys($border-style)}. The key should match one of the available styles.";
+  }
+
+  @return map-get($border-style, $key);
+}
+
+@function get-border-width($key: null) {
+  @if $key == null or not map-has-key($border-width, $key) {
+    @error "Invalid key '#{$key}' provided. Available widths are: #{map-keys($border-width)}. The key should match one of the available widths.";
+  }
+
+  @return map-get($border-width, $key);
+}
+
+@function get-border-radius($key: null) {
+  @if $key == null or not map-has-key($border-radii, $key) {
+    @error "Invalid key '#{$key}' provided. Available radii are: #{map-keys($border-radius)}.";
+  }
+
+  @return map-get($border-radii, $key);
+}

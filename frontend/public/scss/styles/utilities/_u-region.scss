@@ -1,0 +1,18 @@
+/// REGION
+///
+/// Add consistent vertical padding to create regions of content.
+/// Can either be configured by setting --region-block-start and --region-block-end or use a default from the space scale.
+///
+/// CUSTOM PROPERTIES AND CONFIGURATION
+/// --region-block-start: Defines the padding at the start of the block.
+/// --region-block-end: Defines the padding at the end of the block.
+///
+@use "../../tools/functions" as *;
+
+.u-region {
+  --_region-block-start: var(--gutter, 1rem);
+  --_region-block-end: var(--gutter, 1rem);
+
+  padding-block-start: var(--region-block-start, var(--_region-block-start));
+  padding-block-end: var(--region-block-end, var(--_region-block-end));
+}

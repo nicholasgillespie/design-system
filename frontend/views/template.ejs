@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <title><%= title %> | Design System</title>
+    <meta
+    name="description"
+    content="<%= description %>"
+    />
+    <script type="module" src="/js/index.js" defer></script>
+  </head>
+  <body>
+    <div class="c-sidebar">
+      <header class="[ b-site-header ][ c-box ]">
+        <div class="skip-link-container">
+          <a href="#main" class="skip-link">Skip to Content</a>
+        </div>
+        <div class="[ b-sticky ][ c-stack ]" data-stack="space-between">
+          <div class="[ b-logo-container ][ c-stack ]">
+            <a href="/" class="[ c-stack ][ u-size-2 ]">
+              <span>Design</span>
+              <span>System</span>
+            </a>
+            <nav>
+              <ul role="list" class="u-flow">
+                <%- include('partials/_menu', { title: slug }); -%>
+              </ul>
+            </nav>
+          </div>
+          <%- include('partials/_theme-switch'); -%>
+        </div>
+      </header>
+
+      <main id="main" class="p-<%= slug %>">
+        <div class="[ c-stack ][ u-wrapper u-region ]">
+          <%- include(`pages/${title}`) %>
+        </div>
+
+        <footer class="u-wrapper">
+          <div class="[ u-theme-break u-mbe-s-m ]"></div>
+          <div class="c-cluster">
+            <%- include('partials/_theme-switch'); -%>
+            <div class="[ c-stack ][ u-center ]">
+              <p>Developed By</p>
+              <a href="https://nicholasgillespie.com/" aria-label="Visit Nicholas Gillespie's website">nicholasgillespie.com</a>
+            </div>
+            <a href="#main" class="[ b-button b-back-to-top ][ u-border-highlight ]" aria-label="Back to top"></a>
+          </div>
+        </footer>
+      </main>
+
+    </div><!-- sidebar end -->
+  </body>
+</html>

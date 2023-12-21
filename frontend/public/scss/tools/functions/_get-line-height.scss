@@ -1,0 +1,22 @@
+/// GET-LINE-HEIGHT FUNCTION
+///
+/// This function retrieves a line height from a map of line heights. The key should correspond to a line height category, for example 'tight' or 'normal'.
+/// It first checks if a valid key is provided. If not, it throws an error with the available line heights.
+/// It then checks if the provided key exists in the map. If not, it throws an error with the available options.
+/// If the key is valid, it retrieves the line height associated with the key from the map and returns it.
+///
+/// @param {string} $key - The key corresponding to a line height category
+///
+/// @return {number} - The line height from the map, or an error if the key is not found or invalid
+///
+@use "../../tokens/t-line-height" as *;
+
+@function get-line-height($key: null) {
+  @if $key == null or not map-has-key($line-height, $key) {
+    @error "Invalid key '#{$key}' provided. Available heights are: #{map-keys($line-heights)}. The key should match one of the available heights.";
+  }
+
+  // @return var(--line-height-#{$key});
+  // Uncomment the following line to return the height directly from the map instead of using CSS variables
+  @return map-get($line-height, $key);
+}

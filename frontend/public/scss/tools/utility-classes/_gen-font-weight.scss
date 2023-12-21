@@ -1,0 +1,13 @@
+/// GEN-FONT-WEIGHT FILE
+///
+/// This file generates CSS utility classes for each font weight category in the `$font-weight` map.
+/// Each class applies the corresponding font weight to an element.
+/// The font weight applied is determined by the `$font-weight` map.
+///
+@use "../../tokens/t-font-weight" as *;
+
+@each $key, $value in $font-weight {
+  .u-font-weight-#{$key} {
+    font-weight: $value;
+  }
+}

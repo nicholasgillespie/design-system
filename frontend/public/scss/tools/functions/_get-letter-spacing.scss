@@ -1,0 +1,22 @@
+/// GET-LETTER-SPACING FUNCTION
+///
+/// This function retrieves a letter spacing from a map of letter spacings. The key should correspond to a letter spacing category, for example 'base' or 'wide'.
+/// It first checks if a valid key is provided. If not, it throws an error with the available letter spacings.
+/// It then checks if the provided key exists in the map. If not, it throws an error with the available options.
+/// If the key is valid, it retrieves the letter spacing associated with the key from the map and returns it.
+///
+/// @param {string} $key - The key corresponding to a letter spacing category
+///
+/// @return {number} - The letter spacing from the map, or an error if the key is not found or invalid
+///
+@use "../../tokens/t-letter-spacing" as *;
+
+@function get-letter-spacing($key: null) {
+  @if $key == null or not map-has-key($letter-spacing, $key) {
+    @error "Invalid key '#{$key}' provided. Available spacings are: #{map-keys($letter-spacing)}. The key should match one of the available spacings.";
+  }
+
+  // @return var(--letter-spacing-#{$key});
+  // Uncomment the following line to return the spacing directly from the map instead of using CSS variables
+  @return map-get($letter-spacing, $key);
+}

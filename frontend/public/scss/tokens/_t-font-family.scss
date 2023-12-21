@@ -1,0 +1,46 @@
+/// FONT-FAMILY TOKEN
+///
+/// This file defines a map of font stacks for different text styles.
+/// Each stack contains an ordered list of font families.
+/// Use the `get-font-family` function to retrieve a font stack from the map.
+///
+/// Example usage: `get-font-family("base")`
+
+$font-family: (
+  "base": (
+    "-apple-system",
+    "BlinkMacSystemFont",
+    "avenir next",
+    "avenir",
+    "segoe ui",
+    "helvetica neue",
+    "helvetica",
+    "Cantarell",
+    "Ubuntu",
+    "roboto",
+    "noto",
+    "arial",
+    "sans-serif",
+  ),
+  "brand": (
+    "Iowan Old Style",
+    "Apple Garamond",
+    "Baskerville",
+    "Times New Roman",
+    "Droid Serif",
+    "Times",
+    "Source Serif Pro",
+    "serif",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+  ),
+  "code": (
+    "Menlo",
+    "Consolas",
+    "Monaco",
+    "Liberation Mono",
+    "Lucida Console",
+    "monospace",
+  ),
+);

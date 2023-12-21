@@ -1,0 +1,52 @@
+/// ATKINSON HYPERLEGIBLE FONT
+///
+/// This file contains @font-face declarations for the "Atkinson Hyperlegible" font.
+/// The font is loaded in different styles (Regular, Bold, Italic, and Bold Italic).
+/// The font files are in WOFF and WOFF2 formats and are loaded from the local "/fonts/atkinson-hyperlegible/" directory.
+/// The font-display property is set to "swap" for performance optimization.
+///
+/// Note: The font is not currently being used in the project.
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-Regular-102a.woff2")
+      format("woff2"),
+    url("/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-Regular-102.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 700; // Bold
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-Bold-102a.woff2")
+      format("woff2"),
+    url("/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-Bold-102.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 400; // Normal weight for Italic
+  font-style: italic;
+  font-display: swap;
+  src: url("/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-Italic-102a.woff2")
+      format("woff2"),
+    url("/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-Italic-102.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 700; // Bold Italic
+  font-style: italic;
+  font-display: swap;
+  src: url("/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-BoldItalic-102a.woff2")
+      format("woff2"),
+    url("/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-BoldItalic-102.woff")
+      format("woff");
+}

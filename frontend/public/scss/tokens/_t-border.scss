@@ -1,0 +1,23 @@
+/// BORDER TOKEN
+///
+/// This file defines maps for border styles, widths, and radii.
+/// Use the `get-border-style`, `get-border-width`, or `get-border-radius` function to retrieve specific border attributes from the respective maps.
+///
+/// Example usage: `get-border-style("base")`, `get-border-width("medium")`, `get-border-radius("rounded")`
+
+$border-style: (
+  "base": solid,
+  "dashed": dashed,
+  "dotted": dotted,
+);
+
+$border-width: (
+  "base": 1px,
+  "medium": 2px,
+  "bold": 4px,
+);
+
+$border-radii: (
+  "base": 4px,
+  "rounded": 50%,
+);

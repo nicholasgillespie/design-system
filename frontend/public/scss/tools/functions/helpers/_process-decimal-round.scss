@@ -1,0 +1,23 @@
+/// DECIMAL-ROUND FUNCTION
+///
+/// This function rounds a number to a specified number of decimal places.
+/// It first initializes a variable $n to 1.
+/// It then runs a loop from 1 through the specified number of decimal places, each time multiplying $n by 10.
+/// The function then multiplies the input number by $n, rounds the result to the nearest whole number, and divides it by $n.
+/// This effectively rounds the input number to the specified number of decimal places.
+/// Finally, it returns the rounded number.
+///
+/// @param {number} $number - The number to be rounded
+/// @param {number} $decimal - The number of decimal places to round to
+///
+/// @return {number} - The input number rounded to the specified number of decimal places
+///
+@use "sass:math";
+
+@function decimal-round($number, $decimal) {
+  $n: 1;
+  @for $i from 1 through $decimal {
+    $n: $n * 10;
+  }
+  @return math.div(round($number * $n), $n);
+}

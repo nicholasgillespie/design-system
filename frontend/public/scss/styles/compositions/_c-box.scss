@@ -1,0 +1,28 @@
+/// C-BOX
+///
+/// A layout component that provides a customizable, padded container for content.
+/// The padding and border properties (color, style, width) can be customized using CSS custom properties.
+/// More info: https://every-layout.dev/layouts/box/
+///
+/// CUSTOM PROPERTIES AND CONFIGURATION
+/// --box-padding: Defines the padding inside the box. Defaults to the value of --gutter if not specified.
+/// --box-border-color: Defines the border color of the box. Defaults to the theme's base border color if not specified.
+/// --box-border-style: Defines the border style of the box. Defaults to the base border style if not specified.
+/// --box-border-width: Defines the border width of the box. Defaults to the bold border width if not specified.
+///
+/// The .c-box class uses these custom properties to set its padding and border properties. If a custom property is not specified, it falls back to a default value.
+///
+@use "../../tools/functions/" as *;
+
+.c-box {
+  --_box-padding: var(--gutter, 1rem);
+  --_box-border-color: #{get-theme("border", "base")};
+  --_box-border-style: #{get-border-style("base")};
+  --_box-border-width: #{get-border-width("bold")};
+
+  display: block;
+  padding: var(--box-padding, var(--_box-padding));
+  border: var(--box-border-color, var(--_box-border-color))
+    var(--box-border-style, var(--_box-border-style))
+    var(--box-border-width, var(--_box-border-width));
+}
