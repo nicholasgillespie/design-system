@@ -6,10 +6,10 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "dev": "concurrently \"npm run build:sass\" \"npm run start:server\"",
+    "dev": "concurrently \"npm run build:sass\" \"npm run start:server\" \"npm run purgecss\"",
     "start:server": "node server.js",
     "build:sass": "sass frontend/public/scss/styles/index.scss:frontend/public/css/index.css",
-    "purgecss": "purgecss --config ./purgecss.config.js --output ./public/css",
+    "purgecss": "purgecss --config purgecss.config.cjs --output ./frontend/public/css",
     "heroku-postbuild": "npm run build:sass && npm run purgecss"
   },
   "author": "nicholas gillespie",
