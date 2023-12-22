@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start:dev": "concurrently \"npm run compile:sass\" \"npm run start:server:dev\"",
+    "dev": "concurrently \"npm run compile:sass\" \"npm run start:server:dev\"",
     "start:server:dev": "nodemon --env-file=config.env server.js",
     "compile:sass": "sass --watch frontend/public/scss/styles/index.scss:frontend/public/css/index.css",
     "start": "concurrently \"npm run build:sass\" \"npm run start:server\"",
@@ -15,6 +15,7 @@
   "author": "nicholas gillespie",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.7.4",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2"
@@ -23,5 +24,8 @@
     "concurrently": "^8.2.2",
     "nodemon": "^3.0.2",
     "sass": "^1.69.5"
+  },
+  "engines": {
+    "node": "20.10.x"
   }
 }

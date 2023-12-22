@@ -3,6 +3,7 @@ import express from "express";
 import { fileURLToPath } from "url";
 import path from "path";
 import slugify from "./utils/slugify.js";
+import compression from "compression";
 
 /* IMPORT ROUTERS & CONTROLLERS //////////////////// */
 import viewRouter from "./routes/viewRoutes.js";
@@ -20,6 +21,7 @@ app.set("views", path.join(__frontend, "views")); /* sets views directory */
 app.use(
   express.static(path.join(__frontend, "public"))
 ); /* sets static assets directory */
+app.use(compression()); /* compresses all responses */
 
 /* LOCAL MIDDLEWARE //////////////////// */
 app.use((req, res, next) => {
