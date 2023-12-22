@@ -1,10 +1,14 @@
+# Design System
+
+Visit the live website here: [Design System Website](https://design-system-091cf1512bdb.herokuapp.com/)
+
 ## Overview
 
 This project is a comprehensive **Design System** that provides a cohesive set of design and code standards. It includes tokens for key attributes such as color, typography, and spacing, among others. These tokens are instrumental in constructing user interfaces that are both consistent and scalable.
 
 The design system is built with Node.js and Express, and uses EJS as a templating engine. It also utilizes SCSS for more advanced CSS preprocessing, and follows the CUBE CSS methodology for structuring CSS.
 
-![Screenshot of the design system](./frontend/public/img/design-system-screenshot.png)
+[![Screenshot of the design system](./frontend/public/img/design-system-screenshot.png)](https://design-system-091cf1512bdb.herokuapp.com)
 
 The system provides:
 
