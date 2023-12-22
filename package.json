@@ -5,12 +5,11 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run compile:sass\" \"npm run start:server:dev\"",
-    "start:server:dev": "nodemon --env-file=config.env server.js",
-    "compile:sass": "sass --watch frontend/public/scss/styles/index.scss:frontend/public/css/index.css",
     "start": "node server.js",
+    "dev": "concurrently \"npm run build:sass\" \"npm run start:server\"",
     "start:server": "node server.js",
-    "build:sass": "sass frontend/public/scss/styles/index.scss:frontend/public/css/index.css"
+    "build:sass": "sass frontend/public/scss/styles/index.scss:frontend/public/css/index.css",
+    "heroku-postbuild": "npm run build:sass"
   },
   "author": "nicholas gillespie",
   "license": "ISC",
