@@ -14,5 +14,4 @@ const port = process.env.PORT || 3000;
 server.listen(port, () => {
   const date = new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" });
   console.log(`${date} - Application running at ${PROTO}://${HOST}:${PORT}`);
-  // console.log(`${date}`);
 });
