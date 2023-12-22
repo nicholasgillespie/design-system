@@ -6,12 +6,10 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "dev": "concurrently \"npm run build:sass\" \"npm run start:server\" \"npm run purgecss\"",
+    "dev": "concurrently \"npm run build:sass\" \"npm run start:server\"",
     "start:server": "node server.js",
     "build:sass": "sass frontend/public/scss/styles/index.scss:frontend/public/css/index.css",
-    "purgecss": "purgecss --config purgecss.config.cjs --output ./frontend/public/css",
-    "build": "npm run build:sass && npm run purgecss",
-    "heroku-postbuild": "npm run build:sass && npm run purgecss"
+    "heroku-postbuild": "npm run build:sass"
   },
   "author": "nicholas gillespie",
   "license": "ISC",
@@ -24,8 +22,6 @@
   "devDependencies": {
     "concurrently": "^8.2.2",
     "nodemon": "^3.0.2",
-    "postcss-cli": "^11.0.0",
-    "purgecss": "^5.0.0",
     "sass": "^1.69.5"
   },
   "engines": {
