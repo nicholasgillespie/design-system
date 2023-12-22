@@ -9,7 +9,6 @@
     "start:server:dev": "nodemon --env-file=config.env server.js",
     "compile:sass": "sass --watch frontend/public/scss/styles/index.scss:frontend/public/css/index.css",
     "start": "node server.js",
-    "start:prod": "concurrently \"npm run build:sass\" \"npm run start:server\"",
     "start:server": "node server.js",
     "build:sass": "sass frontend/public/scss/styles/index.scss:frontend/public/css/index.css"
   },
