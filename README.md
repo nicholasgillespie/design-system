@@ -4,6 +4,8 @@ This project is a comprehensive **Design System** that provides a cohesive set o
 
 The design system is built with Node.js and Express, and uses EJS as a templating engine. It also utilizes SCSS for more advanced CSS preprocessing, and follows the CUBE CSS methodology for structuring CSS.
 
+![Screenshot of the design system](./frontend/public/img/design-system-screenshot.png)
+
 The system provides:
 
 - **Colors**: Adaptable, consistent color schemes with a guide on palette, light and dark themes.
