@@ -9,7 +9,8 @@
     "dev": "concurrently \"npm run build:sass\" \"npm run start:server\"",
     "start:server": "node server.js",
     "build:sass": "sass frontend/public/scss/styles/index.scss:frontend/public/css/index.css",
-    "heroku-postbuild": "npm run build:sass"
+    "purgecss": "purgecss --config ./purgecss.config.js --output ./public/css",
+    "heroku-postbuild": "npm run build:sass && npm run purgecss"
   },
   "author": "nicholas gillespie",
   "license": "ISC",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "concurrently": "^8.2.2",
     "nodemon": "^3.0.2",
+    "purgecss": "^5.0.0",
     "sass": "^1.69.5"
   },
   "engines": {
