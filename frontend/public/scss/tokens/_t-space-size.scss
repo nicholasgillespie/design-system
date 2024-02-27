@@ -49,6 +49,6 @@ $space-size: (
 );
 
 // DEBUG
-@each $key, $value in $space-size {
-  @debug "Key: #{$key}, Value: #{$value}";
-}
+// @each $key, $value in $space-size {
+//   @debug "Key: #{$key}, Value: #{$value}";
+// }
