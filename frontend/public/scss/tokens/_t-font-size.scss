@@ -43,6 +43,6 @@ $font-size: (
 );
 
 // DEBUG
-@each $key, $value in $font-size {
-  @debug "Key: #{$key}, Value: #{$value}";
-}
+// @each $key, $value in $font-size {
+//   @debug "Key: #{$key}, Value: #{$value}";
+// }

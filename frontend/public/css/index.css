@@ -8,6 +8,7 @@
   --size-3: clamp(1.9438rem, 1.4895rem + 2.2714vw, 3.5338rem);
   --size-4: clamp(2.3325rem, 1.5712rem + 3.8063vw, 4.9969rem);
   --size-5: clamp(2.7994rem, 1.5805rem + 6.0946vw, 7.0656rem);
+  --space-zero: clamp(0rem, -0.0179rem + 0.0893vw, 0.0625rem);
   --space-3xs: clamp(0.2813rem, 0.2724rem + 0.0446vw, 0.3125rem);
   --space-2xs: clamp(0.5625rem, 0.5446rem + 0.0893vw, 0.625rem);
   --space-xs: clamp(0.8438rem, 0.817rem + 0.1339vw, 0.9375rem);
@@ -456,6 +457,67 @@ button.u-link {
   --wrapper-max-inline-size: min(calc(1440px - 20rem), 100%);
 }
 
+.p-404 p {
+  text-wrap: balance;
+}
+
+.p-colors table .c-cluster {
+  --cluster-flex-wrap: nowrap;
+  --cluster-gap: var(--space-2xs);
+}
+.p-colors table .c-cluster .c-cluster {
+  --cluster-flex-wrap: wrap;
+  --cluster-flex-direction: column;
+  --cluster-align-items: flex-start;
+  --cluster-gap: 0;
+}
+.p-colors table .c-cluster .c-cluster div:last-of-type {
+  font-size: 0.65em;
+}
+.p-colors table .c-box {
+  padding: var(--space-xs);
+  --box-border-width: 1px;
+}
+.p-colors .u-theme-break {
+  min-inline-size: 6ch;
+}
+
+.b-theme-usage th:first-child,
+.b-theme-usage td:first-child {
+  inline-size: 10%;
+}
+.b-theme-usage th:not(:first-child),
+.b-theme-usage td:not(:first-child) {
+  inline-size: 30%;
+}
+.b-theme-usage .b-theme-backgrounds .c-box {
+  display: inline-block;
+  margin-block: 0.2ch;
+  vertical-align: top;
+}
+
+.b-spacing-demo {
+  overflow: hidden;
+  --stack-space: 1rem;
+  --flow-space: 0.5em;
+}
+.b-spacing-demo .b-demo-block {
+  display: inline-block;
+}
+
+.b-spacing-usage {
+  padding-inline-start: 2ch;
+}
+.b-spacing-usage li {
+  padding-inline-start: calc(1em - 0.5ch);
+}
+
+.p-typography .b-demo-sizes li em {
+  font-size: 0.5em;
+  letter-spacing: -0.075ch;
+  font-weight: 400;
+}
+
 .p-welcome .u-region:first-of-type {
   --region-block-end: 0;
 }
@@ -531,67 +593,6 @@ button.u-link {
   content: counter(step);
   padding-inline-end: 1em;
   font-weight: 700;
-}
-
-.p-colors table .c-cluster {
-  --cluster-flex-wrap: nowrap;
-  --cluster-gap: var(--space-2xs);
-}
-.p-colors table .c-cluster .c-cluster {
-  --cluster-flex-wrap: wrap;
-  --cluster-flex-direction: column;
-  --cluster-align-items: flex-start;
-  --cluster-gap: 0;
-}
-.p-colors table .c-cluster .c-cluster div:last-of-type {
-  font-size: 0.65em;
-}
-.p-colors table .c-box {
-  padding: var(--space-xs);
-  --box-border-width: 1px;
-}
-.p-colors .u-theme-break {
-  min-inline-size: 6ch;
-}
-
-.b-theme-usage th:first-child,
-.b-theme-usage td:first-child {
-  inline-size: 10%;
-}
-.b-theme-usage th:not(:first-child),
-.b-theme-usage td:not(:first-child) {
-  inline-size: 30%;
-}
-.b-theme-usage .b-theme-backgrounds .c-box {
-  display: inline-block;
-  margin-block: 0.2ch;
-  vertical-align: top;
-}
-
-.p-typography .b-demo-sizes li em {
-  font-size: 0.5em;
-  letter-spacing: -0.075ch;
-  font-weight: 400;
-}
-
-.b-spacing-demo {
-  overflow: hidden;
-  --stack-space: 1rem;
-  --flow-space: 0.5em;
-}
-.b-spacing-demo .b-demo-block {
-  display: inline-block;
-}
-
-.b-spacing-usage {
-  padding-inline-start: 2ch;
-}
-.b-spacing-usage li {
-  padding-inline-start: calc(1em - 0.5ch);
-}
-
-.p-404 p {
-  text-wrap: balance;
 }
 
 .b-site-header {
@@ -819,6 +820,62 @@ button.u-link {
 .u-size-5 {
   font-size: var(--size-5);
   line-height: 1;
+}
+
+.u-m-zero {
+  margin: var(--space-zero);
+}
+
+.u-mb-zero {
+  margin-block: var(--space-zero);
+}
+
+.u-mbs-zero {
+  margin-block-start: var(--space-zero);
+}
+
+.u-mbe-zero {
+  margin-block-end: var(--space-zero);
+}
+
+.u-mi-zero {
+  margin-inline: var(--space-zero);
+}
+
+.u-mis-zero {
+  margin-inline-start: var(--space-zero);
+}
+
+.u-mie-zero {
+  margin-inline-end: var(--space-zero);
+}
+
+.u-p-zero {
+  padding: var(--space-zero);
+}
+
+.u-pb-zero {
+  padding-block: var(--space-zero);
+}
+
+.u-pbs-zero {
+  padding-block-start: var(--space-zero);
+}
+
+.u-pbe-zero {
+  padding-block-end: var(--space-zero);
+}
+
+.u-pi-zero {
+  padding-inline: var(--space-zero);
+}
+
+.u-pis-zero {
+  padding-inline-start: var(--space-zero);
+}
+
+.u-pie-zero {
+  padding-inline-end: var(--space-zero);
 }
 
 .u-m-3xs {

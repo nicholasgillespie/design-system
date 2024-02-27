@@ -31,6 +31,7 @@ $_fc-3xl-max: $_fc-s-max * 6;
 
 $space-size: (
   // T-shirt sizes
+  "zero": calc-step(0, 1),
   "3xs": calc-step($_fc-3xs-min, $_fc-3xs-max),
   "2xs": calc-step($_fc-2xs-min, $_fc-2xs-max),
   "xs": calc-step($_fc-xs-min, $_fc-xs-max),
@@ -48,6 +49,6 @@ $space-size: (
 );
 
 // DEBUG
-// @each $key, $value in $space-size {
-//   @debug "Key: #{$key}, Value: #{$value}";
-// }
+@each $key, $value in $space-size {
+  @debug "Key: #{$key}, Value: #{$value}";
+}
