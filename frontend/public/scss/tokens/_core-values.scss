@@ -1,10 +1,14 @@
 /// CORE-VALUES TOKEN
 ///
-/// This file defines the core values for the application: viewport sizes and base sizes.
+/// This file defines the core values for the application: viewport sizes, base sizes, and type scales.
 /// The $viewport-sizes and $base-sizes maps are used for fluid type, spacing, and font size configuration.
+/// The $scale map, imported from the core-scale file, defines the musical scale ratios for typography.
+/// The $type-scale map uses the $scale map to set the minimum and maximum type scales.
 /// These values propagate throughout the application, affecting design and layout.
 ///
 /// Note: The actual pixel values are determined by the values set in these maps.
+///
+@use "./core-scale" as *;
 
 $viewport-sizes: (
   "min": 320,
@@ -14,4 +18,9 @@ $viewport-sizes: (
 $base-sizes: (
   "min": 18,
   "max": 20,
+);
+
+$type-scale: (
+  "min": map-get($scale, "minor third"),
+  "max": map-get($scale, "augmented fourth"),
 );
