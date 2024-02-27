@@ -8,8 +8,8 @@
 /// - About: Styles specific to the about page.
 /// - Contact: Styles specific to the contact page.
 
-@forward "p-welcome";
-@forward "p-colors";
-@forward "p-typography";
-@forward "p-spacing";
 @forward "p-404";
+@forward "p-colors";
+@forward "p-spacing";
+@forward "p-typography";
+@forward "p-welcome";
