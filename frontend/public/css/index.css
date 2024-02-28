@@ -23,9 +23,14 @@
   --space-s-l: clamp(1.125rem, 0.7321rem + 1.9643vw, 2.5rem);
   --gutter: var(--space-s-m);
   --measure: 75ch;
-  --font-family-base: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-  --font-family-brand: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  --font-family-code: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+  --font-family-base: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  --font-family-brand: Iowan Old Style, Apple Garamond, Baskerville,
+    Times New Roman, Droid Serif, Times, Source Serif Pro, serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --font-family-code: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console,
+    monospace;
   --color-core-primary: #7553c6;
   --color-shade-dark: hsl(0, 0%, 0%);
   --color-shade-dim: hsl(0, 0%, 14%);
@@ -57,7 +62,7 @@
   }
 }
 
-body[data-theme=dark] {
+body[data-theme="dark"] {
   --theme-bg-base: var(--color-shade-dark);
   --theme-bg-highlight: var(--color-shade-light-bright);
   --theme-color-base: var(--color-shade-gray-bright);
@@ -68,7 +73,7 @@ body[data-theme=dark] {
   --theme-border-highlight: var(--color-core-primary);
 }
 
-body[data-theme=light] {
+body[data-theme="light"] {
   --theme-bg-base: var(--color-shade-light-bright);
   --theme-bg-highlight: var(--color-shade-dark);
   --theme-color-base: var(--color-shade-dim);
@@ -86,8 +91,8 @@ body[data-theme=light] {
   padding: 0;
 }
 
-ul[role=list],
-ol[role=list] {
+ul[role="list"],
+ol[role="list"] {
   list-style: none;
 }
 
@@ -234,15 +239,16 @@ a {
   text-decoration-color: var(--theme-border-highlight);
   font-weight: 700;
 }
-.u-link:hover, .u-link:focus,
+.u-link:hover,
+.u-link:focus,
 a:hover,
 a:focus {
   color: var(--theme-border-highlight);
   text-decoration: none;
   cursor: pointer;
 }
-.u-link[aria-current=page],
-a[aria-current=page] {
+.u-link[aria-current="page"],
+a[aria-current="page"] {
   color: var(--theme-color-highlight);
   text-decoration: none;
   cursor: default;
@@ -267,7 +273,8 @@ button {
   text-decoration-color: var(--theme-border-highlight);
   text-align: start;
 }
-.b-button:hover, .b-button:focus,
+.b-button:hover,
+.b-button:focus,
 button:hover,
 button:focus {
   color: var(--theme-border-highlight);
@@ -327,7 +334,9 @@ button.u-link {
   --_box-border-width: 4px;
   display: block;
   padding: var(--box-padding, var(--_box-padding));
-  border: var(--box-border-color, var(--_box-border-color)) var(--box-border-style, var(--_box-border-style)) var(--box-border-width, var(--_box-border-width));
+  border: var(--box-border-color, var(--_box-border-color))
+    var(--box-border-style, var(--_box-border-style))
+    var(--box-border-width, var(--_box-border-width));
 }
 
 .c-cluster {
@@ -339,7 +348,7 @@ button.u-link {
   align-items: var(--cluster-align-items, center);
   gap: var(--cluster-gap, var(--_cluster-gap));
 }
-.c-cluster[data-cluster=space-between] {
+.c-cluster[data-cluster="space-between"] {
   --cluster-justify-content: space-between;
 }
 
@@ -348,7 +357,13 @@ button.u-link {
   --_grid-ram-min-item-size: 16rem;
   --_grid-ram-gap: var(--gutter, 1rem);
   display: grid;
-  grid-template-columns: repeat(var(--grid-ram-placement, var(--_grid-ram-placement)), minmax(min(var(--grid-ram-min-item-size, var(--_grid-ram-min-item-size)), 100%), 1fr));
+  grid-template-columns: repeat(
+    var(--grid-ram-placement, var(--_grid-ram-placement)),
+    minmax(
+      min(var(--grid-ram-min-item-size, var(--_grid-ram-min-item-size)), 100%),
+      1fr
+    )
+  );
   grid-gap: var(--grid-ram-gap, var(--_grid-ram-gap));
 }
 
@@ -367,9 +382,12 @@ button.u-link {
 .c-sidebar > :last-child {
   flex-basis: 0;
   flex-grow: 999;
-  min-inline-size: var(--sidebar-content-min-width, var(--_sidebar-content-min-width));
+  min-inline-size: var(
+    --sidebar-content-min-width,
+    var(--_sidebar-content-min-width)
+  );
 }
-.c-sidebar[data-sidebar=rtl] {
+.c-sidebar[data-sidebar="rtl"] {
   flex-direction: row-reverse;
 }
 
@@ -386,7 +404,7 @@ button.u-link {
 .c-stack > * + * {
   margin-block-start: var(--stack-space, var(--_stack-space));
 }
-.c-stack[data-stack=space-between] {
+.c-stack[data-stack="space-between"] {
   --stack-justify-content: space-between;
 }
 
@@ -398,7 +416,7 @@ button.u-link {
 .u-flow > * + * {
   margin-block-start: var(--flow-space, 1em);
 }
-.u-flow > *[data-flow=none] {
+.u-flow > *[data-flow="none"] {
   --flow-space: 0;
 }
 .u-flow > *[data-flow="2em"] {
@@ -427,7 +445,7 @@ button.u-link {
   max-inline-size: calc(100% - (2 * var(--gutter) + 8px));
 }
 
-.u-sr-only:not(:focus):not(:active) {
+.u-visually-hidden:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   block-size: 1px;
@@ -449,11 +467,14 @@ button.u-link {
   --_wrapper-max-inline-size: calc(var(--measure) + 2 * var(--gutter));
   --_wrapper-padding-inline: var(--gutter, 1rem);
   margin-inline: auto;
-  max-inline-size: var(--wrapper-max-inline-size, var(--_wrapper-max-inline-size));
+  max-inline-size: var(
+    --wrapper-max-inline-size,
+    var(--_wrapper-max-inline-size)
+  );
   padding-inline: var(--wrapper-padding-inline, var(--_wrapper-padding-inline));
   position: relative;
 }
-.u-wrapper[data-wrapper=large] {
+.u-wrapper[data-wrapper="large"] {
   --wrapper-max-inline-size: min(calc(1440px - 20rem), 100%);
 }
 
@@ -538,7 +559,8 @@ button.u-link {
   color: var(--theme-color-base);
   text-wrap: balance;
 }
-.b-quick-start .c-box:hover, .b-quick-start .c-box:focus {
+.b-quick-start .c-box:hover,
+.b-quick-start .c-box:focus {
   --box-border-color: var(--theme-border-highlight);
 }
 
@@ -565,7 +587,7 @@ button.u-link {
   margin-inline-end: 2.3ch;
   color: var(--theme-border-bold);
 }
-.b-scss-structure .b-level-3[data-level=last]::before {
+.b-scss-structure .b-level-3[data-level="last"]::before {
   content: "";
   margin-inline-end: 3.45ch;
 }
