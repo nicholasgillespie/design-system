@@ -16,11 +16,9 @@
 /// [data-sidebar='rtl']: Flips the sidebar to be on the right.
 ///
 /// The .c-sidebar class uses these custom properties to set its flexbox properties and gap. If a custom property is not specified, it falls back to a default value.
-///
-@use "../../tools/functions/" as *;
 
 .c-sidebar {
-  --_sidebar-gap: var(--gutter, 1rem);
+  --_sidebar-gap: var(--gutter, 5rem);
   --_sidebar-target-width: 20rem;
   --_sidebar-content-min-width: 60%;
 
