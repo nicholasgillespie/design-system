@@ -353,7 +353,7 @@ button.u-link {
 }
 
 .c-sidebar {
-  --_sidebar-gap: var(--gutter, 1rem);
+  --_sidebar-gap: var(--gutter, 5rem);
   --_sidebar-target-width: 20rem;
   --_sidebar-content-min-width: 60%;
   display: flex;

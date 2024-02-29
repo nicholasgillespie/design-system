@@ -33,6 +33,7 @@ export default {
     const description =
       "Explore the typography rules and learn how font families and sizes are used to ensure readability and consistency across the design system.";
     const slug = slugify(title);
+    console.log("slug", slug);
     res.status(200).render("template", {
       title,
       description,
