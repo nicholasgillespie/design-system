@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "type": "module",
+  "node": "18.x",
   "scripts": {
     "start": "node server.js",
     "dev": "concurrently \"npm run build:sass\" \"npm run start:server\"",
