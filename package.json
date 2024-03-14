@@ -4,7 +4,6 @@
   "description": "",
   "main": "server.js",
   "type": "module",
-  "node": "18.x",
   "scripts": {
     "start": "node server.js",
     "dev": "concurrently \"npm run build:sass\" \"npm run start:server\"",
@@ -26,6 +25,6 @@
     "sass": "^1.69.5"
   },
   "engines": {
-    "node": "20.10.x"
+    "node": "18.x"
   }
 }
