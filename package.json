@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "concurrently \"npm run build:sass\" \"npm run start:server\"",
-    "start:server": "node server.js",
+    "build": "node server.js",
     "build:sass": "sass frontend/public/scss/styles/index.scss:frontend/public/css/index.css",
     "heroku-postbuild": "npm run build:sass"
   },
